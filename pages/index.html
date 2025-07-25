@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fresh Threads</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f8f3ef;
+    }
+
+    /* Image Slider */
+    .imgslider {
+      width: 100%;
+      height: 500px;
+      background-image: url('./../images/background.jpg');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      animation: changeimage 15s linear infinite;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+    @keyframes changeimage {
+      0% {
+        background-image: url('./../images/nort-india.jpg');
+      }
+      50% {
+        background-image: url('');
+      }
+      100% {
+        background-image: url('');
+      }
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #330000;
+      padding: 15px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar h2 {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #fff;
+    }
+
+    .navbar ul li a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background-color:#fff;
+      width: 0;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .navbar ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Image Section */
+    .image-section {
+        padding-top: 5px;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+      flex-wrap: wrap;
+    }
+
+    .image-box {
+      width: 100%;
+      max-width: 1000px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .image-box img {
+      width: 1600px;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+      }
+
+      .image-box img {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h2>Fresh Threads</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="destination explore.html">Explore</a></li>
+      <li><a href="Booking.html">Booking</a></li>
+      <li><a href="About Us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Image Slider -->
+  <div class="imgslider"></div>
+</body>
+</html>
