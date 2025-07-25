@@ -163,24 +163,160 @@
       background-repeat: no-repeat;
     }
 
+.container-body {
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba(7,71,163,1) 55%, rgba(5,112,190,1) 68%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
+}
 
+.slider-container {
+  height:400px;
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+    width: 100%;
+    margin:auto;
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden; /* Prevent scrollbar */
+}
+
+.slide-box {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    
+}
+
+.slide-image {
+    flex: 0 0 auto;
+    width: 160px;
+    height: 180px;
+    margin: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 6px;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.slide-image img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-2500px); /* Adjust based on total slide width */
+    }
+}
   
     /* Responsive */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+   /* ===== Responsive Design for Tablets and Phones ===== */
+@media screen and (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
 
-      .main-container {
-        flex-direction: column;
-        padding: 20px;
-      }
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
 
-      .image-box {
-        flex-direction: column;
-      }
-    }
+  .navbar ul li {
+    width: 100%;
+  }
+
+  .navbar ul li a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #440000;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .left-section {
+    padding: 20px;
+  }
+
+  .left-section h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .left-section h2,
+  .left-section p {
+    text-align: center;
+  }
+
+  .image-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-box img {
+    width: 90%;
+    height: auto;
+  }
+
+  .slide-image {
+    width: 120px;
+    height: 140px;
+    margin: 10px;
+  }
+
+  .slider-container {
+    padding: 10px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar h2 {
+    font-size: 20px;
+  }
+
+  .navbar ul li a {
+    font-size: 16px;
+  }
+
+  .left-section h1 {
+    font-size: 24px;
+  }
+
+  .slide-image {
+    width: 100px;
+    height: 120px;
+  }
+
+  .image-box img {
+    width: 100%;
+  }
+}
+
+   
   </style>
 </head>
 <body>
@@ -206,6 +342,57 @@
       </div>
     </div>
   </div>
+  
+  <div class="slider-container">
+    <div class="slide-box">
+        <div class="slide-image">
+            <img src="https://img.freepik.com/premium-photo/view-historic-building-red-building-against-sky_1048944-8190172.jpg?w=740" alt="Slide 1">
+            <div class="overlay">
+              <p>Red Fort</p>
+            </div>
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/1-sri-harmandir-sahib-(golden-temple)-amritsar-punjab-attr-nearby?qlt=82&ts=1726662259743" alt="Slide 2">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/shanti-stupa-leh-ladakh-1-attr-nearby?qlt=82&ts=1726667881441" alt="Slide 3">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/rohtang-pass-manali-himachal-pradesh-1-attr-nearby?qlt=82&ts=1726730692270" alt="Slide 4">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/brahma-sarovar-kurukshetra-haryana-1-attr-nearby?qlt=82&ts=1726732428341" alt="Slide 5">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-1-attr-nearby?qlt=82&ts=1726660181235">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/har-ki-pauri-haridwar1-attr-nearby?qlt=82&ts=1726645912765">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/sri-jagannath-temple-puri-odisha-1-attr-nearby?qlt=82&ts=1726663729229">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/taj-mahal-agra-uttar-pradesh-1-attr-nearby?qlt=82&ts=1726650395114">
+        </div>
+        <div class="slide-image">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/gateway-of-india-mumbai-maharashtra-1-attr-nearby?qlt=82&ts=1727355349679">
 
+        </div>
+        <div class="slide-image">
+            <img src="https://img.freepik.com/premium-photo/kedarnath-india_78361-2504.jpg?uid=R153033801&ga=GA1.1.1514042541.1725031889&semt=ais_hybrid">
+        </div>
+        <div class="slide-image">
+            <img src="https://img.freepik.com/premium-photo/illustration-kashi-vishwanath-jyotirlinga-situated-ancient_756405-32750.jpg?uid=R153033801&ga=GA1.1.1514042541.1725031889&semt=ais_hybrid">
+        </div>
+        <div class="slide-image">
+            <img src="https://img.freepik.com/premium-photo/large-full-moon-is-building-with-large-moon-background_1260073-5319.jpg?uid=R153033801&ga=GA1.1.1514042541.1725031889&semt=ais_hybrid">
+        </div>
+        <div class="slide-image">
+            <img src="https://media.istockphoto.com/id/1093869564/photo/murud-janjira-fort-situated-on-an-oval-shaped-rock-off-the-arabian-sea-coast-near-the-port.jpg?b=1&s=612x612&w=0&k=20&c=ykRfql_W5PtdvrvqrcaFtrYtosQzP528BJN1U14uUWc=">
+        </div>
+        </div>
+        </div>
+        </section>
 </body>
 </html>
