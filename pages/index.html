@@ -370,59 +370,6 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
   0%, 100% { border-color: transparent }
   50% { border-color: rgba(255, 68, 0, 0.863); }
 }
-* {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      width: 100%;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-    }
-
-    .rajasthan-container {
-      height: 100vh;
-      width: 100%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-1-attr-nearby?qlt=82&ts=1726660181235') repeat-x;
-      background-size: cover;
-      animation: scrollBackground 40s linear infinite;
-    }
-
-    @keyframes scrollBackground {
-      0% {
-        background-position: 0 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
-    }
-
-    .overlay-text {
-      color: white;
-      font-size: 3rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-      z-index: 2;
-    }
-
-    /* Optional dark overlay for readability */
-    .rajasthan-container::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
 
   </style>
 </head>
@@ -506,11 +453,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
         </div>
         </div>
         <br><br>
-       <div class="rajasthan-container">
-    <div class="overlay-text">Welcome to Rajasthan</div>
-  </div>
-
-  <script src="./script.js"></script>
+       
         </section>
 </body>
 </html>
