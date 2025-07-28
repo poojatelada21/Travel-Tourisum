@@ -155,7 +155,7 @@
     }
 
     .image-box img {
-      width: 1800px;
+      width: 1650px;
       height: 400px;
       object-fit: cover;
       border-radius: 10px;
@@ -326,58 +326,60 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
 
   }
   @media screen and (max-width: 768px) {
-  .tayping {
+  .typing {
     font-size: 16px;       /* Smaller text on mobile */
     animation: typing 3s steps(25) forwards, blink 0.6s infinite;
   }
 
-  @keyframes tayping {
+  @keyframes typing {
     from { width: 0 }
     to { width: 25ch; }    /* Shorter width for smaller screens */
   }
 }
 
 @media screen and (max-width: 480px) {
-  .tayping {
+  .typing {
     font-size: 14px;
     animation: typing 2.5s steps(20) forwards, blink 0.6s infinite;
   }
 
-  @keyframes tayping {
+  @keyframes typing {
     from { width: 0 }
     to { width: 20ch; }
   }
 }
 
-.tayping-container {
+.typing-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
-  text-align: center;
+  padding: 20px;
+  height:1.2rem;
 }
 
-.tayping {
-  border-right: 2px solid rgba(255, 68, 0, 0.863);
+
+.typing {
+  margin: 2px auto;
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  border-right: 2px solid orange;
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: tayping 4s steps(40) forwards, blink 0.6s infinite;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 26px;
-  color: #330000;
-  margin-left: 450px;
-  padding-top: 0;
-  margin-bottom: 15px;
+  animation: typing 5s steps(30, end) forwards;
+  max-width: 100%;
+  margin-top: 0px;
   margin-top: 0px;
 }
+
 
 .i {
   color: rgba(255, 68, 0, 0.863);
   font-weight: bold;
 }
 
-@keyframes tayping {
+@keyframes typing {
   from { width: 0 }
   to { width: 30ch }
 }
@@ -387,7 +389,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
   50% { border-color: rgba(255, 68, 0, 0.863); }
 }
 .footer {
-  background: linear-gradient(135deg, #1b1b1b, #3b3b3b);
+  background: linear-gradient(rgb(124, 42, 42));
   color: white;
   padding: 50px 20px;
   text-align: center;
@@ -435,7 +437,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
 
 .footer-bottom {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #fff;
   animation: fadeIn 3.5s ease;
 }
 
@@ -525,6 +527,48 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
   }
 }
 
+.sub-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #444;
+      min-width: 150px;
+      display: none;
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    .sub-nav a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .sub-nav a:hover {
+      background-color: #555;
+    }
+
+    .navbar li:hover .sub-nav {
+      display: flex;
+    }
+     .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -535,7 +579,12 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
             <img src="" alt="website logo"></div>
               <ul>
                 <li><div><a href="home.html">Home</a></div><li>
-               <li> <div><a href="././destination explore.html"> explore</a></div></li>
+               <li> <div><a href="././destination explore.html"> explore Destination</a>
+              <div class="sub-nav">
+                   <a href="#">East India</a>
+                   <a href="#">West India</a>
+                    <a href="#">North India</a>
+                   <a href="#">South India</a></div></li>
                 <li><div><a href="Booking.html"> Booking</a></div></li>
                   <li><div><a href="About Us.html">About Us</a></div></li>
                     <li><div><a href="Contact.html"> Contact</a></div></li>
@@ -553,8 +602,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
   </div>
   
   <br><br> 
-  <div class="tayping">
-    <h3 class="tayping">Most Popular<i class="i"> Destinatons </i></h3></div>
+  <div class="typing">
+    <h3 class="typing">Most Popular<i class="i"> Destinatons </i></h3></div>
   <div class="slider-container">
     <div class="slide-box">
         <div class="slide-image">
