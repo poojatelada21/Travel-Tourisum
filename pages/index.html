@@ -571,12 +571,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
       }
      
     }
-     .dropdown:focus-within.sub-nav{
-        display: flex;
-      }
-      .dropdown{
-        position: relative;
-      }
+     
       
   </style>
 </head>
@@ -587,16 +582,9 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
          <div class="container">
             <img src="" alt="website logo"></div>
               <ul>
-                <li><a href="./index.html">Home</a><li>
-                  <li class="dropdown">
-               <a href="./explore-destination.html " class="dropdown-toggle"> explore Destination</a>
-              <ul class="sub-nav">
-                  <li> <a href="./east.html">East India</a></li>
-                  <li> <a href="./west.html">West India</a></li>
-                    <li><a href="north.html">North India</a></li>
-                   <li><a href="./south.html">South India</a></li>
-              </ul>
-                   <li><a href="Booking.html"> Booking</a></li>
+                  <li><a href="./index.html">Home</a><li>
+                  <li><a href="./explore-destination.html "> explore Destination</a></li>
+                 <li><a href="Booking.html"> Booking</a></li>
                    <li><a href="About Us.html">About Us</a></li>
                    <li><a href="Contact.html"> Contact</a></li>
             </div>
@@ -680,23 +668,6 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
   </div>
 </footer>
 </section>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const dropdownBtn = document.querySelector(".dropdown-btn");
-    const dropdown = document.querySelector(".dropdown");
 
-    dropdownBtn.addEventListener("click", function (e) {
-      e.preventDefault(); // prevent default link behavior
-      dropdown.classList.toggle("active");
-    });
-
-    // Optional: Close dropdown when clicking outside
-    document.addEventListener("click", function (e) {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("active");
-      }
-    });
-  });
-</script>
 </body>
 </html>
