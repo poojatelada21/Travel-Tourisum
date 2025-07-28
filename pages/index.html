@@ -538,11 +538,12 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
       z-index: 999;
     }
 
-    .sub-nav a {
+    .sub-nav li a {
       color: white;
       padding: 10px;
       text-decoration: none;
       display: block;
+      white-space: nowrap;
     }
 
     .sub-nav a:hover {
@@ -568,7 +569,15 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
       .menu-toggle {
         display: flex;
       }
+     
     }
+     .dropdown:focus-within.sub-nav{
+        display: flex;
+      }
+      .dropdown{
+        position: relative;
+      }
+      
   </style>
 </head>
 <body>
@@ -578,16 +587,18 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
          <div class="container">
             <img src="" alt="website logo"></div>
               <ul>
-                <li><div><a href="./index.html">Home</a></div><li>
-               <li> <div><a href="././destination explore.html"> explore Destination</a></li>
-              <div class="sub-nav">
-                   <a href="./east.html">East India</a>
-                   <a href="./west.html">West India</a>
-                    <a href="north.html">North India</a>
-                   <a href="./south.html">South India</a></div>
-                <li><div><a href="Booking.html"> Booking</a></div></li>
-                  <li><div><a href="About Us.html">About Us</a></div></li>
-                    <li><div><a href="Contact.html"> Contact</a></div></li>
+                <li><a href="./index.html">Home</a><li>
+                  <li class="dropdown">
+               <a href="./explore-destination.html " class="dropdown-toggle"> explore Destination</a>
+              <ul class="sub-nav">
+                  <li> <a href="./east.html">East India</a></li>
+                  <li> <a href="./west.html">West India</a></li>
+                    <li><a href="north.html">North India</a></li>
+                   <li><a href="./south.html">South India</a></li>
+              </ul>
+                   <li><a href="Booking.html"> Booking</a></li>
+                   <li><a href="About Us.html">About Us</a></li>
+                   <li><a href="Contact.html"> Contact</a></li>
             </div>
           </ul>
         </div>
@@ -668,7 +679,24 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
     <p class="footer-bottom">&copy; 2025 Incredible India. All Rights Reserved.</p>
   </div>
 </footer>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownBtn = document.querySelector(".dropdown-btn");
+    const dropdown = document.querySelector(".dropdown");
 
-        </section>
+    dropdownBtn.addEventListener("click", function (e) {
+      e.preventDefault(); // prevent default link behavior
+      dropdown.classList.toggle("active");
+    });
+
+    // Optional: Close dropdown when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+  });
+</script>
 </body>
 </html>
