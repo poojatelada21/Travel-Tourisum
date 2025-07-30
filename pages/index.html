@@ -681,22 +681,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
 </footer>
 </section>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const dropdownBtn = document.querySelector(".dropdown-btn");
-    const dropdown = document.querySelector(".dropdown");
-
-    dropdownBtn.addEventListener("click", function (e) {
-      e.preventDefault(); // prevent default link behavior
-      dropdown.classList.toggle("active");
-    });
-
-    // Optional: Close dropdown when clicking outside
-    document.addEventListener("click", function (e) {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("active");
-      }
-    });
-  });
+ 
 </script>
 </body>
 </html>
