@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Destination</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(241, 241, 241);
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      animation: fadeIn 1.5s ease forwards;
+      margin-bottom:20%;
+    }
+
+    button {
+      background-color: rgba(253, 96, 38, 0.863);
+      color: white;
+      border: 1px solid rgba(253, 96, 38, 0.863);
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      animation: slideIn 0.5s ease forwards;
+    }
+
+    button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    button:nth-child(1) { animation-delay: 0.2s; }
+    button:nth-child(2) { animation-delay: 0.4s; }
+    button:nth-child(3) { animation-delay: 0.6s; }
+    button:nth-child(4) { animation-delay: 0.8s; }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .img-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      top: -160px;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+       margin-top: 10%;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      transform: translateY(100%);
+      transition: transform 0.5s ease;
+    }
+
+    .img-container:hover .overlay {
+      transform: translateY(0);
+    }
+    .image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button><a href="./east.html">East India</a></button>
+    <button><a href="./west.html">West India</a></button>
+    <button><a href="./north.html">North India</a></button>
+    <button><a href="./south.html">South India</a></button>
+  </div>
+
+ <div class="image-gallery">
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?tajmahal" alt="Taj Mahal">
+    <div class="overlay">Taj Mahal, India</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?gatewayofindia" alt="Gateway of India">
+    <div class="overlay">Gateway of India, Mumbai</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?kerala" alt="Kerala Backwaters">
+    <div class="overlay">Kerala Backwaters</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?himalayas" alt="Himalayas">
+    <div class="overlay">The Himalayas</div>
+  </div><br><br>
+  <div class="image-gallery">
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?tajmahal" alt="Taj Mahal">
+    <div class="overlay">Taj Mahal, India</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?gatewayofindia" alt="Gateway of India">
+    <div class="overlay">Gateway of India, Mumbai</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?kerala" alt="Kerala Backwaters">
+    <div class="overlay">Kerala Backwaters</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?himalayas" alt="Himalayas">
+    <div class="overlay">The Himalayas</div>
+  </div>
+</div>
+<br>
+<div class="image-gallery">
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?tajmahal" alt="Taj Mahal">
+    <div class="overlay">Taj Mahal, India</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?gatewayofindia" alt="Gateway of India">
+    <div class="overlay">Gateway of India, Mumbai</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?kerala" alt="Kerala Backwaters">
+    <div class="overlay">Kerala Backwaters</div>
+  </div>
+
+  <div class="img-container">
+    <img src="https://source.unsplash.com/300x200/?himalayas" alt="Himalayas">
+    <div class="overlay">The Himalayas</div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
