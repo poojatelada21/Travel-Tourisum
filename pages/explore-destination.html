@@ -5,64 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Explore Destination</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: rgb(241, 241, 241);
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      margin-top: 50px;
-    }
-
     .button-container {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 50px;
-      animation: fadeIn 1.5s ease forwards;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  display: flex;
+  gap: 20px;
+  margin-bottom: 50px;
+  animation: fadeIn 1.5s ease forwards;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    button {
-      background-color: rgba(253, 96, 38, 0.863);
-      color: white;
-      border: 1px solid rgba(253, 96, 38, 0.863);
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      opacity: 0;
-      animation: slideIn 0.5s ease forwards;
-    }
+button {
+  background-color: rgba(253, 96, 38, 0.863);
+  color: white;
+  border: 2px solid transparent;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  animation: popIn 0.6s ease forwards;
+  animation-delay: var(--delay);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-    button a {
-      color: white;
-      text-decoration: none;
-    }
+/* Pop In Keyframe */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-    button:nth-child(1) { animation-delay: 0.2s; }
-    button:nth-child(2) { animation-delay: 0.4s; }
-    button:nth-child(3) { animation-delay: 0.6s; }
-    button:nth-child(4) { animation-delay: 0.8s; }
+button:hover {
+  transform: scale(1.08);
+  background-color: #ff5200;
+  box-shadow: 0 0 10px #ff5200, 0 0 20px #ff5200;
+}
 
-    button:hover {
-      transform: scale(1.1);
-    }
+/* Glow Border Effect on Hover */
+button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, #ff5200, #ff9654, #ff5200);
+  transform: rotate(0deg);
+  transition: all 0.5s ease;
+  z-index: 0;
+  opacity: 0;
+  border-radius: 50%;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+button:hover::before {
+  transform: rotate(180deg);
+  opacity: 0.3;
+}
 
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+button a {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-decoration: none;
+}
     .image-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -108,11 +120,11 @@
 
   <!-- Button Section -->
   <div class="button-container">
-    <button><a href="./east.html">East India</a></button>
-    <button><a href="./west.html">West India</a></button>
-    <button><a href="./north.html">North India</a></button>
-    <button><a href="./south.html">South India</a></button>
-  </div>
+  <button style="--delay: 0.2s;"><a href="./east.html">East India</a></button>
+  <button style="--delay: 0.4s;"><a href="./west.html">West India</a></button>
+  <button style="--delay: 0.6s;"><a href="./north.html">North India</a></button>
+  <button style="--delay: 0.8s;"><a href="./south.html">South India</a></button>
+</div>
 
   <!-- Image Gallery -->
   <div class="image-gallery">
