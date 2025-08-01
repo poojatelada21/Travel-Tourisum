@@ -4,139 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>India Travel - Pelling Overview</title>
- </head>
-<style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+      padding-bottom: 50px;
+    }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  background: #fff;
-  color: #333;
-  padding-bottom: 50px;
+    .slider {
+      position: relative;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-}
+    .slider img {
+      width: 60%;
+      height: auto;
+      border-radius: 10px;
+      animation: zoomIn 1.2s ease-in-out forwards;
+      transition: transform 0.4s ease-in-out;
+    }
 
-/* Removed navbar CSS as requested */
+    .slider img:hover { transform: scale(1.05); }
 
-.slider {
-  position: relative;
-  margin-top: 50px;
-}
+    @keyframes zoomIn {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
 
-.slider {
-  position: relative;
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
+    /* Typing text right below image */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      margin-top: 10px;
+    }
 
-.slider img {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  animation: zoomIn 1.2s ease-in-out forwards;
-  transition: transform 0.4s ease-in-out;
-}
+    .typing {
+      font-size: 1.8rem;
+      color: #333;
+      border-right: 2px solid orange;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards,
+                 blink 0.7s step-end infinite alternate;
+      animation-delay: 1.5s; /* start after image animation */
+    }
 
-.slider img:hover {
-  transform: scale(1.05);
-}
+    .i { color: rgba(255, 68, 0, 0.9); font-weight: bold; }
 
-/* Zoom-in animation on load */
-@keyframes zoomIn {
-  0% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 38ch }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
 
-.overview {
-  padding: 20px;
-}
+    /* Paragraph styling */
+    .content {
+      max-width: 70%;
+      margin: 20px auto;
+      font-size: 1rem;
+      text-align: justify;
+      line-height: 1.7;
+    }
 
-.overview h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-.overview .highlight {
-  color: #e91e63;
-  font-weight: bold;
-  font-style: italic;
-}
-
-.cursor {
-  display: inline-block;
-  animation: blink 1s infinite;
-  color: #e91e63;
-  font-size: 24px;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.overview p {
-  margin-bottom: 15px;
-  text-align: justify;
-}
-
-/* ✅ Responsive Design */
-@media screen and (max-width: 768px) {
-  .overview {
-    padding: 15px;
-  }
-
-  .overview h2 {
-    font-size: 20px;
-  }
-
-  .cursor {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .overview h2 {
-    font-size: 18px;
-  }
-
-  .cursor {
-    font-size: 18px;
-  }
-
-  .overview p {
-    font-size:14px;}
-}
-</style>
+    @media screen and (max-width: 480px) {
+      .typing { 
+        font-size: 18px; 
+        white-space: normal;
+        border-right: none;  
+      }
+      .content {
+        max-width: 90%;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
 <body>
 
   <section class="slider">
-    <img src="./../images/east-india nature.jpg" alt="Scenic landscape of Pelling, Sikkim" loading="lazy" />
+    <!-- Image -->
+    <img src="./../images/east-india nature.jpg" 
+         alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
+         loading="lazy" />
+    
+    <!-- Typing animation text right below image -->
+    <div class="typing-container">
+      <h3 class="typing">Overview Of <i class="i">Pavilion</i></h3>
+    </div>
 
-  </section>
-
-  <section class="overview">
-    <h2>Overview of <span class="highlight">Pe</span><span class="cursor">|</span></h2>
-    <p>Pelling, located in the picturesque state of Sikkim, India, is a charming town known for its scenic beauty, historical significance, and vibrant culture. Nestled at an altitude of 2,150 meters, Pelling offers a breathtaking view of the Kanchenjunga, the third–highest mountain in the world, making it a popular destination for nature lovers and adventure enthusiasts.</p>
-
-    <p>Tourism in Pelling is booming, thanks to its proximity to mesmerizing landscapes, Buddhist monasteries, and rich heritage sites. Visitors can explore the beauty of lush green forests, waterfalls, and trekking trails, making it one of the best tourist places in Sikkim. The town’s cool climate, especially during the summer months, offers a perfect escape from the heat of the plains.</p>
-
-    <p>Why visit Pelling? The town’s tranquil vibe, coupled with spectacular views and cultural heritage, makes it a must-visit for travelers seeking both relaxation and adventure. With its serene ambiance, Pelling serves as an ideal destination.</p>
+    <!-- Paragraph content -->
+    <div class="content">
+      <p>
+        <strong>Information about the Pavilion of the Enlightened:</strong><br><br>
+        <b>Location:</b> It is one of the 116 structures found in Ancient Siam, 
+        an outdoor museum also known as Muang Boran. It is specifically located 
+        in the Suvarnabhumi zone of the park and is numbered 110.<br><br>
+        <b>Design & Symbolism:</b> This golden, lotus-shaped pavilion is dedicated 
+        to honoring 500 enlightened monks who achieved Nirvana.<br><br>
+        <b>Significance:</b> It is considered one of the most iconic structures 
+        within Ancient Siam, recognized for its architectural beauty and spiritual 
+        significance, reflecting Thai artistry and Buddhist philosophy.<br><br>
+        <b>Recent Events:</b> In 2006, the Pavilion of the Enlightened served as 
+        a runway for the finale of America's Next Top Model, Season 6, marking 
+        the largest model platform in the show's history.
+      </p>
+    </div>
   </section>
 
 </body>
