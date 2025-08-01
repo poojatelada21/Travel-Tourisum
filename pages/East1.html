@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Travel - Pelling Overview</title>
+ </head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #333;
+  padding-bottom: 50px;
+
+}
+
+/* Removed navbar CSS as requested */
+
+.slider {
+  position: relative;
+  margin-top: 50px;
+}
+
+.slider {
+  position: relative;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  animation: zoomIn 1.2s ease-in-out forwards;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slider img:hover {
+  transform: scale(1.05);
+}
+
+/* Zoom-in animation on load */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.overview {
+  padding: 20px;
+}
+
+.overview h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.overview .highlight {
+  color: #e91e63;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: #e91e63;
+  font-size: 24px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.overview p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* ✅ Responsive Design */
+@media screen and (max-width: 768px) {
+  .overview {
+    padding: 15px;
+  }
+
+  .overview h2 {
+    font-size: 20px;
+  }
+
+  .cursor {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .overview h2 {
+    font-size: 18px;
+  }
+
+  .cursor {
+    font-size: 18px;
+  }
+
+  .overview p {
+    font-size:14px;}
+}
+</style>
+<body>
+
+  <section class="slider">
+    <img src="./../images/east-india nature.jpg" alt="Scenic landscape of Pelling, Sikkim" loading="lazy" />
+
+  </section>
+
+  <section class="overview">
+    <h2>Overview of <span class="highlight">Pe</span><span class="cursor">|</span></h2>
+    <p>Pelling, located in the picturesque state of Sikkim, India, is a charming town known for its scenic beauty, historical significance, and vibrant culture. Nestled at an altitude of 2,150 meters, Pelling offers a breathtaking view of the Kanchenjunga, the third–highest mountain in the world, making it a popular destination for nature lovers and adventure enthusiasts.</p>
+
+    <p>Tourism in Pelling is booming, thanks to its proximity to mesmerizing landscapes, Buddhist monasteries, and rich heritage sites. Visitors can explore the beauty of lush green forests, waterfalls, and trekking trails, making it one of the best tourist places in Sikkim. The town’s cool climate, especially during the summer months, offers a perfect escape from the heat of the plains.</p>
+
+    <p>Why visit Pelling? The town’s tranquil vibe, coupled with spectacular views and cultural heritage, makes it a must-visit for travelers seeking both relaxation and adventure. With its serene ambiance, Pelling serves as an ideal destination.</p>
+  </section>
+
+</body>
+</html>
