@@ -14,9 +14,10 @@
       padding-bottom: 50px;
     }
 
+    /* Slider Section */
     .slider {
       position: relative;
-      margin-top: 50px;
+      margin-top: 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -39,7 +40,7 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    /* Typing text right below image */
+    /* Typing animation */
     .typing-container {
       display: flex;
       justify-content: center;
@@ -57,7 +58,7 @@
       width: 0;
       animation: typing 4s steps(40, end) forwards,
                  blink 0.7s step-end infinite alternate;
-      animation-delay: 1.5s; /* start after image animation */
+      animation-delay: 1.5s;
     }
 
     .i { color: rgba(255, 68, 0, 0.9); font-weight: bold; }
@@ -70,7 +71,7 @@
       50% { border-color: transparent }
     }
 
-    /* Paragraph styling */
+    /* Overview Paragraph */
     .content {
       max-width: 70%;
       margin: 20px auto;
@@ -79,6 +80,40 @@
       line-height: 1.7;
     }
 
+    /* Gallery Section */
+    .gallery-section {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    .gallery-title {
+      font-size: 1.6rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+    }
+
+    /* Responsive */
     @media screen and (max-width: 480px) {
       .typing { 
         font-size: 18px; 
@@ -94,18 +129,16 @@
 </head>
 <body>
 
+  <!-- Slider with Typing Animation -->
   <section class="slider">
-    <!-- Image -->
     <img src="./../images/east-india nature.jpg" 
          alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
          loading="lazy" />
     
-    <!-- Typing animation text right below image -->
     <div class="typing-container">
       <h3 class="typing">Overview Of <i class="i">Pavilion</i></h3>
     </div>
 
-    <!-- Paragraph content -->
     <div class="content">
       <p>
         <strong>Information about the Pavilion of the Enlightened:</strong><br><br>
@@ -121,6 +154,18 @@
         a runway for the finale of America's Next Top Model, Season 6, marking 
         the largest model platform in the show's history.
       </p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <h2 class="gallery-title">Photo Gallery</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/300x400/?fruit,apple" alt="Apple">
+      <img src="https://source.unsplash.com/300x400/?flower,green" alt="Flower">
+      <img src="https://source.unsplash.com/300x400/?orange,water" alt="Orange Splash">
+      <img src="https://source.unsplash.com/300x400/?coffee,cup" alt="Coffee Cup">
+      <img src="https://source.unsplash.com/300x400/?pineapple" alt="Pineapple">
     </div>
   </section>
 
