@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Travel - Pelling Overview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+      padding-bottom: 50px;
+    }
+
+    .slider {
+      position: relative;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .slider img {
+      width: 60%;
+      height: auto;
+      border-radius: 10px;
+      animation: zoomIn 1.2s ease-in-out forwards;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slider img:hover { transform: scale(1.05); }
+
+    @keyframes zoomIn {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Typing text right below image */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    .typing {
+      font-size: 1.8rem;
+      color: #333;
+      border-right: 2px solid orange;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards,
+                 blink 0.7s step-end infinite alternate;
+      animation-delay: 1.5s; /* start after image animation */
+    }
+
+    .i { color: rgba(255, 68, 0, 0.9); font-weight: bold; }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 38ch }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    /* Paragraph styling */
+    .content {
+      max-width: 70%;
+      margin: 20px auto;
+      font-size: 1rem;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+    @media screen and (max-width: 480px) {
+      .typing { 
+        font-size: 18px; 
+        white-space: normal;
+        border-right: none;  
+      }
+      .content {
+        max-width: 90%;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="slider">
+    <!-- Image -->
+    <img src="./../images/east-india nature.jpg" 
+         alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
+         loading="lazy" />
+    
+    <!-- Typing animation text right below image -->
+    <div class="typing-container">
+      <h3 class="typing">Overview Of <i class="i">Pavilion</i></h3>
+    </div>
+
+    <!-- Paragraph content -->
+    <div class="content">
+      <p>
+        <strong>Information about the Pavilion of the Enlightened:</strong><br><br>
+        <b>Location:</b> It is one of the 116 structures found in Ancient Siam, 
+        an outdoor museum also known as Muang Boran. It is specifically located 
+        in the Suvarnabhumi zone of the park and is numbered 110.<br><br>
+        <b>Design & Symbolism:</b> This golden, lotus-shaped pavilion is dedicated 
+        to honoring 500 enlightened monks who achieved Nirvana.<br><br>
+        <b>Significance:</b> It is considered one of the most iconic structures 
+        within Ancient Siam, recognized for its architectural beauty and spiritual 
+        significance, reflecting Thai artistry and Buddhist philosophy.<br><br>
+        <b>Recent Events:</b> In 2006, the Pavilion of the Enlightened served as 
+        a runway for the finale of America's Next Top Model, Season 6, marking 
+        the largest model platform in the show's history.
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>
