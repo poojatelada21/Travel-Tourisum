@@ -14,9 +14,10 @@
       padding-bottom: 50px;
     }
 
+    /* Slider Section */
     .slider {
       position: relative;
-      margin-top: 50px;
+      margin-top: 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -39,13 +40,14 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    /* Typing text right below image */
+    /* Typing animation */
     .typing-container {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 15px;
       margin-top: 10px;
+      overflow: hidden;
     }
 
     .typing {
@@ -54,23 +56,25 @@
       border-right: 2px solid orange;
       white-space: nowrap;
       overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(40, end) forwards,
+      display: inline-block;
+      width: 0ch;
+      animation: typing 4s steps(30, end) forwards,
                  blink 0.7s step-end infinite alternate;
-      animation-delay: 1.5s; /* start after image animation */
+      animation-delay: 1.2s;
     }
 
     .i { color: rgba(255, 68, 0, 0.9); font-weight: bold; }
 
     @keyframes typing {
-      from { width: 0 }
-      to { width: 38ch }
-    }
-    @keyframes blink {
-      50% { border-color: transparent }
+      from { width: 0ch; }
+      to { width: 26ch; } /* adjust to match text length */
     }
 
-    /* Paragraph styling */
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Overview Paragraph */
     .content {
       max-width: 70%;
       margin: 20px auto;
@@ -79,11 +83,47 @@
       line-height: 1.7;
     }
 
+    /* Gallery Section */
+    .gallery-section {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    .gallery-title {
+      font-size: 1.6rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+    }
+
+    /* Responsive */
     @media screen and (max-width: 480px) {
       .typing { 
         font-size: 18px; 
         white-space: normal;
         border-right: none;  
+        width: auto; /* show full text on small screens */
+        animation: none; /* disable typing for mobile */
       }
       .content {
         max-width: 90%;
@@ -94,33 +134,44 @@
 </head>
 <body>
 
+  <!-- Slider with Typing Animation -->
   <section class="slider">
-    <!-- Image -->
     <img src="./../images/east-india nature.jpg" 
          alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
          loading="lazy" />
     
-    <!-- Typing animation text right below image -->
     <div class="typing-container">
       <h3 class="typing">Overview Of <i class="i">Pavilion</i></h3>
     </div>
 
-    <!-- Paragraph content -->
     <div class="content">
       <p>
-        <strong>Information about the Pavilion of the Enlightened:</strong><br><br>
-        <b>Location:</b> It is one of the 116 structures found in Ancient Siam, 
+         It is one of the 116 structures found in Ancient Siam, 
         an outdoor museum also known as Muang Boran. It is specifically located 
-        in the Suvarnabhumi zone of the park and is numbered 110.<br><br>
-        <b>Design & Symbolism:</b> This golden, lotus-shaped pavilion is dedicated 
-        to honoring 500 enlightened monks who achieved Nirvana.<br><br>
-        <b>Significance:</b> It is considered one of the most iconic structures 
+        in the Suvarnabhumi zone of the park and is numbered 110.<br>
+         This golden, lotus-shaped pavilion is dedicated 
+        to honoring 500 enlightened monks who achieved Nirvana.<br>
+         It is considered one of the most iconic structures 
         within Ancient Siam, recognized for its architectural beauty and spiritual 
-        significance, reflecting Thai artistry and Buddhist philosophy.<br><br>
-        <b>Recent Events:</b> In 2006, the Pavilion of the Enlightened served as 
+        significance, reflecting Thai artistry and Buddhist philosophy.<br>
+         In 2006, the Pavilion of the Enlightened served as 
         a runway for the finale of America's Next Top Model, Season 6, marking 
         the largest model platform in the show's history.
       </p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="typing-container">
+      <h3 class="typing">Best Place To Visit In <i class="i">Pavilion</i></h3>
+    </div>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/300x400/?fruit,apple" alt="Apple">
+      <img src="https://source.unsplash.com/300x400/?flower,green" alt="Flower">
+      <img src="https://source.unsplash.com/300x400/?orange,water" alt="Orange Splash">
+      <img src="https://source.unsplash.com/300x400/?coffee,cup" alt="Coffee Cup">
+      <img src="https://source.unsplash.com/300x400/?pineapple" alt="Pineapple">
     </div>
   </section>
 
