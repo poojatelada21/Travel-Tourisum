@@ -47,6 +47,7 @@
       align-items: center;
       padding: 15px;
       margin-top: 10px;
+      overflow: hidden;
     }
 
     .typing {
@@ -55,20 +56,22 @@
       border-right: 2px solid orange;
       white-space: nowrap;
       overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(40, end) forwards,
+      display: inline-block;
+      width: 0ch;
+      animation: typing 4s steps(30, end) forwards,
                  blink 0.7s step-end infinite alternate;
-      animation-delay: 1.5s;
+      animation-delay: 1.2s;
     }
 
     .i { color: rgba(255, 68, 0, 0.9); font-weight: bold; }
 
     @keyframes typing {
-      from { width: 0 }
-      to { width: 38ch }
+      from { width: 0ch; }
+      to { width: 26ch; } /* adjust to match text length */
     }
+
     @keyframes blink {
-      50% { border-color: transparent }
+      50% { border-color: transparent; }
     }
 
     /* Overview Paragraph */
@@ -119,6 +122,8 @@
         font-size: 18px; 
         white-space: normal;
         border-right: none;  
+        width: auto; /* show full text on small screens */
+        animation: none; /* disable typing for mobile */
       }
       .content {
         max-width: 90%;
@@ -141,16 +146,15 @@
 
     <div class="content">
       <p>
-        <strong>Information about the Pavilion of the Enlightened:</strong><br><br>
-        <b>Location:</b> It is one of the 116 structures found in Ancient Siam, 
+         It is one of the 116 structures found in Ancient Siam, 
         an outdoor museum also known as Muang Boran. It is specifically located 
-        in the Suvarnabhumi zone of the park and is numbered 110.<br><br>
-        <b>Design & Symbolism:</b> This golden, lotus-shaped pavilion is dedicated 
-        to honoring 500 enlightened monks who achieved Nirvana.<br><br>
-        <b>Significance:</b> It is considered one of the most iconic structures 
+        in the Suvarnabhumi zone of the park and is numbered 110.<br>
+         This golden, lotus-shaped pavilion is dedicated 
+        to honoring 500 enlightened monks who achieved Nirvana.<br>
+         It is considered one of the most iconic structures 
         within Ancient Siam, recognized for its architectural beauty and spiritual 
-        significance, reflecting Thai artistry and Buddhist philosophy.<br><br>
-        <b>Recent Events:</b> In 2006, the Pavilion of the Enlightened served as 
+        significance, reflecting Thai artistry and Buddhist philosophy.<br>
+         In 2006, the Pavilion of the Enlightened served as 
         a runway for the finale of America's Next Top Model, Season 6, marking 
         the largest model platform in the show's history.
       </p>
@@ -159,7 +163,9 @@
 
   <!-- Gallery Section -->
   <section class="gallery-section">
-    <h2 class="gallery-title">Photo Gallery</h2>
+    <div class="typing-container">
+      <h3 class="typing">Best Place To Visit In <i class="i">Pavilion</i></h3>
+    </div>
     <div class="gallery">
       <img src="https://source.unsplash.com/300x400/?fruit,apple" alt="Apple">
       <img src="https://source.unsplash.com/300x400/?flower,green" alt="Flower">
