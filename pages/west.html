@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Image Cards - Flexbox</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #111;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px; /* Space between cards */
+      max-width: 1200px;
+    }
+
+    .card {
+      position: relative;
+      width: 280px;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      background-color: #000;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.4s ease-in-out;
+      color: #fff;
+      text-align: center;
+    }
+
+    .card:hover .card-content {
+      transform: translateY(0);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+        height: 350px;
+      }
+      
+    /* Typing text right below image */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 30px;
+      margin-top: 40px;
+    }
+
+    .typing {
+      font-size: 1.8rem;
+      color: #333;
+      border-right: 2px solid rgba(255, 68, 0, 0.9);
+      padding-right: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(38, end) forwards,
+                 blink 0.7s step-end infinite alternate;
+      animation-delay: 1s;
+    }
+
+    .i { 
+      color: rgba(255, 68, 0, 0.9); 
+      font-weight: bold;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 28ch }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <a href="./East1.html" class="card" target="_blank">
+      <img src="./../images/east-india nature.jpg" alt="Image 1" />
+      <div class="card-content">
+        <h3>IMAGE 1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </a>
+
+    <a href="./East2.html" class="card" target="_blank">
+      <img src="./../images/east-india1.jpg" alt="Image 2" />
+      <div class="card-content">
+        <h3>IMAGE 2</h3>
+        <p>Tempore explicabo modi molestiae vero aliquam quae fugiat!</p>
+      </div>
+    </a>
+
+    <a href="./East3.html" class="card" target="_blank">
+      <img src="./../images/budha.jpg" alt="Image 3" />
+      <div class="card-content">
+        <h3>IMAGE 3</h3>
+        <p>Doloribus fugiat tempora harum nesciunt illum nisi magni!</p>
+      </div>
+    </a>
+
+    <a href="./East4.html" class="card" target="_blank">
+      <img src="./../images/Mahabalipuram-Imghh.webp" alt="Image 4" />
+      <div class="card-content">
+        <h3>IMAGE 4</h3>
+        <p>Enjoy the beauty of tall majestic mountains.</p>
+      </div>
+    </a>
+
+    <a href="./East5.html" class="card" target="_blank">
+      <img src="./../images/north india.jpg" alt="Image 5" />
+      <div class="card-content">
+        <h3>IMAGE 5</h3>
+        <p>Feel the peace of a flowing serene river.</p>
+      </div>
+    </a>
+
+    <a href="./East6.html" class="card" target="_blank">
+      <img src="https://source.unsplash.com/300x400/?desert" alt="Image 6" />
+      <div class="card-content">
+        <h3>IMAGE 6</h3>
+        <p>Walk through the warm golden desert sands.</p>
+      </div>
+    </a>
+  </div>
+
+</body>
+</html>
