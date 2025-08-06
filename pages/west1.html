@@ -1,175 +1,200 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bounce-In Image Cards</title>
+  <title>India Travel - Pelling Overview</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+      padding-bottom: 50px;
     }
 
-    body {
-      background-color:#fff;
-      font-family: Arial, sans-serif;
-      padding: 40px 20px;
+    .slider {
+      position: relative;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .slider img {
+      width: 60%;
+      height: auto;
+      border-radius: 10px;
+      animation: zoomIn 1.2s ease-in-out forwards;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slider img:hover { transform: scale(1.05); }
+
+    @keyframes zoomIn {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Typing text right below image */
+    .typing-container {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 15px;
+      margin-bottom: 30px;
+      margin-top: 40px;
     }
 
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      max-width: 1200px;
-      justify-content: center;
-    }
-
-    .card {
-      position: relative;
-      width: 280px;
-      height: 300px;
-      background-color: #000;
-      border-radius: 15px;
+    .typing {
+      font-size: 1.8rem;
+      color: #333;
+      border-right: 2px solid rgba(255, 68, 0, 0.9);
+      padding-right: 2px;
+      white-space: nowrap;
       overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      transform: translateY(-100px);
-      opacity: 0;
-      visibility: hidden;
-      animation: bounceInDown 1s ease forwards;
-      text-decoration: none;
-      color: white;
+      width: 0;
+      animation: typing 4s steps(38, end) forwards,
+                 blink 0.7s step-end infinite alternate;
+      animation-delay: 1s;
     }
 
-    .card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+    .i { 
+      color: rgba(255, 68, 0, 0.9); 
+      font-weight: bold;
     }
 
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease, opacity 0.5s ease;
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 28ch }
     }
 
-    .card:hover img {
-      transform: scale(1.1);
-      opacity: 0.7;
+    @keyframes blink {
+      50% { border-color: transparent }
     }
 
-    .card-content {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      transform: translateY(100%);
-      transition: transform 0.4s ease-in-out;
-      color: #fff;
-      text-align: center;
+    /* Paragraph styling */
+    .content {
+      max-width: 70%;
+      margin: 20px auto;
+      font-size: 1rem;
+      text-align: justify;
+      line-height: 1.7;
     }
 
-    .card:hover .card-content {
-      transform: translateY(0);
-    }
-
-    .card p {
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    /* Bounce In Down Animation */
-    @keyframes bounceInDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-200px);
-        visibility: hidden;
+    @media screen and (max-width: 480px) {
+      .typing { 
+        font-size: 18px; 
+        white-space: normal;
+        border-right: none;  
       }
-      60% {
-        opacity: 1;
-        transform: translateY(30px);
-        visibility: visible;
+      .content {
+        max-width: 50%;
+        font-size: 15px;
       }
-      80% {
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
+      .gallery-container {
+  max-width: 90%;
+  margin: 30px auto;
+  text-align: center;
+  gap:25px;
+}
+
+.gallery-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #444;
+  animation: fadeInUp 8s ease-in-out forwards;
+}
     }
+    .image-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px; /* 👈 This sets the gap between images */
+  padding: 10px;
+}
 
-    /* Animate 4,5,6 first */
-    .card:nth-child(4) { animation-delay: 0s; }
-    .card:nth-child(5) { animation-delay: 0.1s; }
-    .card:nth-child(6) { animation-delay: 0.2s; }
+.image-gallery img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  gap:25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  opacity: 25;
+  transform: translateY(20px);
+  animation: slideUp 0.8s ease forwards;
+}
 
-    /* Then animate 1,2,3 */
-    .card:nth-child(1) { animation-delay: 0.6s; }
-    .card:nth-child(2) { animation-delay: 0.7s; }
-    .card:nth-child(3) { animation-delay: 0.8s; }
+.image-gallery img:nth-child(1) { animation-delay: 0.3s; }
+.image-gallery img:nth-child(2) { animation-delay: 0.5s; }
+.image-gallery img:nth-child(3) { animation-delay: 0.7s; }
+.image-gallery img:nth-child(4) { animation-delay: 0.9s; }
 
-    @media (max-width: 768px) {
-      .card {
-        width: 90%;
-        height: 350px;
-      }
-    }
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image-gallery img {
+    width: 100%;
+    max-width: 90vw;
+    height: auto;
+  }
+}
   </style>
 </head>
 <body>
 
-  <div class="card-container">
+  <section class="slider">
+    <!-- Image -->
+    <img src="./../images/Udaipur-Imghh.webp" 
+         alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
+         loading="lazy" />
+    
+    <!-- Typing animation text right below image -->
+    <div class="typing-container">
+      <h3 class="typing">Overview Of <i class="i">Khan's Tomb</i></h3>
+    </div>
 
-    <a href="#" class="card">
-      <img src="./../images/Udaipur-Imghh.webp" alt="Image 1" />
-      <div class="card-content">
-        <p>UDAIPUR</p>
+    <!-- Paragraph content -->
+    <div class="content">
+      <p>
+       The image depicts Isa Khan's Tomb, a significant historical structure located within the Humayun's Tomb complex in New Delhi, India. <br>
+This 16th-century mausoleum serves as the resting place of Isa Khan Niazi, an influential Afghan noble who served in the court of Sher Shah Suri.<br> 
+Built in 1547–1548, the tomb is an excellent example of Indo-Islamic architecture, showcasing the transition from Lodi to early Mughal architectural styles.<br> It is octagonal in shape and primarily constructed of red sandstone. 
+The tomb is situated within the larger Humayun's Tomb complex, which is a UNESCO World Heritage Site. An adjacent mosque is also part of the complex, located west of the mausoleum. 
       </div>
-    </a>
-
-    <a href="#" class="card">
-      <img src="./../images/Goa-Travel.webp" alt="Image 2" />
-      <div class="card-content">
-        <p>GOA</p>
-      </div>
-    </a>
-
-    <a href="#" class="card">
-      <img src="./../images/Mumbai.webp" alt="Image 3" />
-      <div class="card-content">
-        <p>MUMBAI</p>
-      </div>
-    </a>
-
-    <a href="#" class="card">
-      <img src="./../images/Munnar.webp" alt="Image 4" />
-      <div class="card-content">
-        <p>MUNNAR</p>
-      </div>
-    </a>
-
-    <a href="#" class="card">
-      <img src="./../images/Kovalam.webp" alt="Image 5" />
-      <div class="card-content">
-        <p>KONVALAM</p>
-      </div>
-    </a>
-
-    <a href="#" class="card">
-      <img src="./../images/Jaisalmer.webp "alt="Image 6" />
-      <div class="card-content">
-        <p>JAISALMER</p>
-      </div>
-    </a>
-
-  </div>
-
-</body>
-</html>
+  </section>
+<!-- Typing animation text right below image -->
+    <div class="typing-container">
+      <h3 class="typing">Overview Of <i class="i">Khan's Tomb</i></h3>
+    </div>
+<!-- Animated image gallery section -->
+<div class="gallery-container"></div>
+  <div class="image-gallery">
+    <img src="./../images/tsomogo lake.jpeg" alt="img 1">
+     <img src="./../images/nathula pass.jpeg" alt="img 2">
+      <img src="./../images/rumtek monastery.jpeg" alt="img 3">
+       <img src="./../images/road.jpeg" alt="img 4">
