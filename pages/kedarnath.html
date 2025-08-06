@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Travel - Kedarnath Temple</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+      padding-bottom: 50px;
+    }
+
+    /* Slider Section */
+    .slider {
+      position: relative;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .slider img {
+      width: 60%;
+      height: 500px;
+      border-radius: 10px;
+      animation: zoomIn 1.2s ease-in-out forwards;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slider img:hover { transform: scale(1.05); }
+
+    @keyframes zoomIn {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Typing animation */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .typing {
+      font-size: 1.8rem;
+      color: #333;
+      border-right: 2px solid orange;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      width: 0ch;
+      animation: typing 4s steps(30, end) forwards,
+                 blink 0.7s step-end infinite alternate;
+      animation-delay: 1.2s;
+    }
+
+    .i { color: rgba(255, 68, 0, 0.9); font-weight: bold; }
+
+    @keyframes typing {
+      from { width: 0ch; }
+      to { width: 26ch; } /* adjust to match text length */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Overview Paragraph */
+    .content {
+      max-width: 70%;
+      margin: 20px auto;
+      font-size: 1rem;
+      text-align: justify;
+      line-height: 1.7;
+    }
+    /* Responsive */
+    @media screen and (max-width: 480px) {
+      .typing { 
+        font-size: 18px; 
+        white-space: normal;
+        border-right: none;  
+        width: auto; /* show full text on small screens */
+        animation: none; /* disable typing for mobile */
+      }
+      .content {
+        max-width: 90%;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slider with Typing Animation -->
+  <section class="slider">
+    <img src="kedarnath.jpg" 
+         alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
+         loading="lazy" />
+    
+    <div class="typing-container">
+      <h3 class="typing">Kedarnath<i class="i">  Temple</i></h3>
+    </div>
+
+    <div class="content">
+      <p>
+    Kedarnath Temple, dedicated to Lord Shiva, is located in Uttarakhand at 3,583 meters near the Mandakini River.
+    It is one of the twelve Jyotirlingas and part of the Chota Char Dham Yatra, open only from April to November due to heavy snow. 
+    According to legend, the Pandavas built it after the Mahabharata war, and Adi Shankaracharya rebuilt it in the 8th century.
+    Shiva is worshipped here in the form of a hump-shaped lingam. 
+    The stone temple survived the 2013 floods and is reached by a 16 km trek from Gaurikund or by helicopter. 
+    Pilgrims believe visiting grants moksha.
+      </p>
+    </div>
+  </section>
+</body>
+</html>
