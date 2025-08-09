@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Travel - Kedarnath Temple</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+      padding-bottom: 50px;
+    }
+
+    /* Slider Section */
+    .slider {
+      position: relative;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .slider img {
+      width: 60%;
+      height: 500px;
+      border-radius: 10px;
+      animation: zoomIn 1.2s ease-in-out forwards;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slider img:hover { transform: scale(1.05); }
+
+    @keyframes zoomIn {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Typing animation */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .typing {
+      font-size: 1.8rem;
+      color: #333;
+      border-right: 2px solid orange;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      width: 0ch;
+      animation: typing 4s steps(30, end) forwards,
+                 blink 0.7s step-end infinite alternate;
+      animation-delay: 1.2s;
+    }
+
+    .i { color: rgba(255, 68, 0, 0.9); font-weight: bold; }
+
+    @keyframes typing {
+      from { width: 0ch; }
+      to { width: 26ch; } /* adjust to match text length */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Overview Paragraph */
+    .content {
+      max-width: 70%;
+      margin: 20px auto;
+      font-size: 1rem;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+  
+    /* Responsive */
+    @media screen and (max-width: 480px) {
+      .typing { 
+        font-size: 18px; 
+        white-space: normal;
+        border-right: none;  
+        width: auto; /* show full text on small screens */
+        animation: none; /* disable typing for mobile */
+      }
+      .content {
+        max-width: 90%;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slider with Typing Animation -->
+  <section class="slider">
+    <img src="./../images/img7.jpg" 
+         alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
+         loading="lazy" />
+    
+    <div class="typing-container">
+      <h3 class="typing">Akshardham<i class="i">  Temple</i></h3>
+    </div>
+
+    <div class="content">
+      <p>
+   Akshardham Temple in Delhi is a modern Hindu temple dedicated to Lord Swaminarayan, opened in 2005.
+    Built with pink sandstone and white marble, it showcases Indian culture, spirituality, and architecture.
+     The main monument has a large idol of Swaminarayan, along with carvings of deities, flora, and fauna.
+      The complex includes the Yagnapurush Kund (largest stepwell), Sahaj Anand Water Show, and cultural exhibitions. 
+      It is one of the world’s largest Hindu temples and a major spiritual and tourist attraction
+
+      </p>
+    </div>
+  </section>
+
+ 
+
+</body>
+</html>
