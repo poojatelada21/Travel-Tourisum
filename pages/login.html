@@ -1,11 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Registration Flow</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      height: 100vh;
+      display: flex; 
+      justify-content: flex-end;
+      align-items: center;
+      background: url('https://img.freepik.com/free-photo/woman-take-photo-fuji-mountains-autumn-japan-travel-concept_335224-168.jpg?t=st=1737521919~exp=1737525519~hmac=2cf0b4f5eead8441225a00156724d888dafb232794dad540d3da51807b5b5dbe&w=900') 
+                  no-repeat center center/cover;
+      position: relative;
+      padding-right: 100px;
+    }
+    body::before {
+      content: "";
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+    .container {
+      position: relative; z-index: 5;
+      width: 370px; 
+      padding: 25px; 
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    h2 { margin-bottom: 15px; color: white; }
+    input, select, textarea {
+      width: 100%; padding: 12px; margin: 8px 0;
+      border: 1px solid #ccc; border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+    button {
+      width: 100%; padding: 12px; margin-top: 10px;
+      border: none; border-radius: 8px;
+      background: rgba(255, 68, 0, 0.863);
+      color: white; font-size: 16px; cursor: pointer;
+    }
+    button:hover {
+      background: rgba(255, 68, 0, 1);
+    }
+    .hidden { display: none; }
+    .message {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      margin: 15px 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    
+  <div class="container">
+    <!-- LOGIN PAGE -->
+    <div id="loginPage">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Enter Email" required>
+        <input type="password" id="loginPassword" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- THANK YOU PAGE -->
+    <div id="thankYouPage" class="hidden">
+      <div class="message">Thank You for Logging In!</div>
+      <button onclick="goToRegister()">Go to Registration</button>
+    </div>
+
+    <!-- REGISTRATION PAGE -->
+    <div id="registerPage" class="hidden">
+      <h2>Registeration</h2>
+      <form id="registerForm">
+        <input type="text" id="regName" placeholder="Full Name" required>
+        <input type="email" id="regEmail" placeholder="Enter Email" required>
+        <input type="password" id="regPassword" placeholder="Enter Password" required>
+        <input type="tel" id="regPhone" placeholder="Phone Number" required>
+
+        <select id="regGender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <input type="date" id="regDate" placeholder="Preferred Travel Date" required>
+        <textarea id="regComments" placeholder="Additional Comments" rows="3"></textarea>
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if(email && password) {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("thankYouPage").classList.remove("hidden");
+      }
+    });
+
+    function goToRegister() {
+      document.getElementById("thankYouPage").classList.add("hidden");
+      document.getElementById("registerPage").classList.remove("hidden");
+    }
+
+    registerForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("regName").value;
+      const email = document.getElementById("regEmail").value;
+      const password = document.getElementById("regPassword").value;
+      const phone = document.getElementById("regPhone").value;
+      const gender = document.getElementById("regGender").value;
+      const date = document.getElementById("regDate").value;
+      const comments = document.getElementById("regComments").value;
+
+      if(name && email && password && phone && gender && date) {
+        // Show success message inside registerPage
+        document.getElementById("registerPage").innerHTML = `
+          <div class="message">Successfully Registered!</div>
+          <button onclick="goToLogin()">Back to Login</button>
+        `;
+
+        // Optional: redirect after 3 seconds
+        // setTimeout(() => {
+        //   window.location.href = "home.html";
+        // }, 3000);
+      }
+    });
+
+    function goToLogin() {
+      location.reload(); // Reload the page to show login again
+    }
+  </script>
 </body>
 </html>
