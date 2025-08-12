@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Travel - Pelling Overview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #333;
+      padding-bottom: 50px;
+    }
+
+    .slider {
+      position: relative;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .slider img {
+      width: 60%;
+      height: auto;
+      border-radius: 10px;
+      animation: zoomIn 1.2s ease-in-out forwards;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slider img:hover { transform: scale(1.05); }
+
+    @keyframes zoomIn {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Typing text right below image */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 30px;
+      margin-top: 40px;
+    }
+
+    .typing {
+      font-size: 1.8rem;
+      color: #333;
+      border-right: 2px solid rgba(255, 68, 0, 0.9);
+      padding-right: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(38, end) forwards,
+                 blink 0.7s step-end infinite alternate;
+      animation-delay: 1s;
+    }
+
+    .i { 
+      color: rgba(255, 68, 0, 0.9); 
+      font-weight: bold;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 28ch }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    /* Paragraph styling */
+    .content {
+      max-width: 70%;
+      margin: 20px auto;
+      font-size: 1rem;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+    @media screen and (max-width: 480px) {
+      .typing { 
+        font-size: 18px; 
+        white-space: normal;
+        border-right: none;  
+      }
+      .content {
+        max-width: 50%;
+        font-size: 15px;
+      }
+      .gallery-container {
+  max-width: 90%;
+  margin: 30px auto;
+  text-align: center;
+  gap:25px;
+}
+
+.gallery-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #444;
+  animation: fadeInUp 8s ease-in-out forwards;
+}
+    }
+    .image-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px; /* 👈 This sets the gap between images */
+  padding: 10px;
+}
+
+.image-gallery img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  gap:25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  opacity: 25;
+  transform: translateY(20px);
+  animation: slideUp 0.8s ease forwards;
+}
+
+.image-gallery img:nth-child(1) { animation-delay: 0.3s; }
+.image-gallery img:nth-child(2) { animation-delay: 0.5s; }
+.image-gallery img:nth-child(3) { animation-delay: 0.7s; }
+.image-gallery img:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image-gallery img {
+    width: 100%;
+    max-width: 90vw;
+    height: auto;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <section class="slider">
+    <!-- Image -->
+    <img src="./../images/Goa-Travel.webp" 
+         alt="Beautiful view of mountains and greenery in Pelling, Sikkim" 
+         loading="lazy" />
+    
+    <!-- Typing animation text right below image -->
+    <div class="typing-container">
+      <h3 class="typing">Overview Of <i class="i">Goa</i></h3>
+    </div>
+
+    <!-- Paragraph content -->
+    <div class="content">
+      <p>
+      Goa, a stunning coastal paradise on the western coast of India, is renowned for its sun-kissed beaches, vibrant nightlife, and rich cultural heritage. Tourism in Goa has been a major draw for travelers worldwide, offering a perfect blend of relaxation, adventure, and exploration. Whether you’re visiting for the famous beaches like Baga and Palolem or exploring its colonial architecture, Goa never fails to charm
+ </p>
+</setction>
+<!-- Typing animation text right below image -->
+    <div class="typing-container">
+      <h3 class="typing">Overview Of <i class="i">Goa</i></h3>
+    </div>
+<!-- Animated image gallery section -->
+<div class="gallery-container"></div>
+  <div class="image-gallery">
+    <img src="./../images/goa fort.webp" alt="img 1">
+    <img src="./../images/Goa-Tour-and-Travel-Best-Places-Goa-1.webp" alt="img2">
+    <img src="./../images/waterfall.jpeg" alt="img3">
+    <img src="./../images/ambola beach.jpeg" alt="img4">
+    </div>
+    </body>
+    </html>
