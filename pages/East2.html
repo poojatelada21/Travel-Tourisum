@@ -47,12 +47,13 @@
       align-items: center;
       padding: 15px;
       margin-bottom: 30px;
+      margin-top: 40px;
     }
 
     .typing {
       font-size: 1.8rem;
       color: #333;
-      border-right: 2px solid orange;
+      border-right: 2px solid rgba(255, 68, 0, 0.9);
       padding-right: 2px;
       white-space: nowrap;
       overflow: hidden;
@@ -69,7 +70,7 @@
 
     @keyframes typing {
       from { width: 0 }
-      to { width: 38ch }
+      to { width: 28ch }
     }
 
     @keyframes blink {
@@ -100,6 +101,7 @@
   margin: 30px auto;
   text-align: center;
   gap:25px;
+ 
 }
 
 .gallery-title {
@@ -116,6 +118,7 @@
   flex-wrap: wrap;
   gap: 30px; /* 👈 This sets the gap between images */
   padding: 10px;
+  
 }
 
 .image-gallery img {
@@ -126,7 +129,7 @@
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.281);
   opacity: 25;
   transform: translateY(20px);
   animation: slideUp 0.8s ease forwards;
