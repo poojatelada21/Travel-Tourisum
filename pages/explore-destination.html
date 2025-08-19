@@ -1,182 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Explore Destination</title>
-  <style>
-    .button-container {
-  display: flex;
-  gap: 25px;
-  margin-bottom: 40px;
-  animation: fadeIn 1.5s ease forwards;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-button {
-  background-color: rgba(253, 96, 38, 0.863);
-  color: white;
-  border: 2px solid transparent;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  opacity: 0;
-  animation: popIn 0.6s ease forwards;
-  animation-delay: var(--delay);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Pop In Keyframe */
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Explore Destination</title>
+<style>
+  /* Reset and base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  body {
+    font-family: Arial, sans-serif;
   }
-}
 
-button:hover {
-  transform: scale(1.08);
-  background-color: #ff5200;
-  box-shadow: 2px 4px 2px 4px  #ffebcc;
-}
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    background: #5A3E2D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 60px; /* Correct height */
+  }
 
-/* Glow Border Effect on Hover */
-button::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(120deg, #ff9654);
-  transform: rotate(0deg);
-  transition: all 0.5s ease;
-  z-index: 0;
-  opacity: 0;
-  border-radius: 50%;
-}
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
 
-button:hover::before {
-  transform: rotate(180deg);
-  opacity: 0.3;
-}
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+  }
 
-button a {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-decoration: none;
-}
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      padding: 20px;
-    }
+  .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
 
-    .img-container {
-      position: relative;
-      width: 280px;
-      height: 200px;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
+  .nav-links li a:hover {
+    color: #f4c842;
+  }
 
-    .img-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .overlay {
+  /* Responsive menu placeholder */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #333;
       position: absolute;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      width: 100%;
+      top: 60px;
+      right: 0;
+      width: 200px;
       text-align: center;
-      padding: 10px;
-      transform: translateY(100%);
-      transition: transform 0.5s ease;
+      padding: 11px;
     }
+  }
 
-    .img-container:hover .overlay {
-      transform: translateY(0);
-    }
-  </style>
+  /* Main content wrapper */
+  main {
+    min-height: calc(100vh - 60px - 80px); /* Full height minus navbar & footer */
+    padding-top: 70px;  /* Space for navbar */
+    padding-bottom: 80px; /* Space for footer */
+  }
+
+  .button-container {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  button {
+    background-color: rgba(253, 96, 38, 0.863);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #ff5200;
+    transform: scale(1.08);
+  }
+
+  button a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .img-container {
+    position: relative;
+    width: 280px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+  }
+
+  .img-container:hover .overlay {
+    transform: translateY(0);
+  }
+
+  /* Footer */
+  .footer {
+    background: #5A3E2D;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%;
+    height: 120px; /* Fixed footer height */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .footer-icons img {
+    width: 24px;
+    margin: 0 8px;
+  }
+</style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Incredible India</div>
+    <ul class="nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./packages.html">Packages</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Button Section -->
-  <div class="button-container">
-  <button style="--delay: 0.2s;"><a href="./east.html">East India</a></button>
-  <button style="--delay: 0.4s;"><a href="./west.html">West India</a></button>
-  <button style="--delay: 0.6s;"><a href="./north.html">North India</a></button>
-  <button style="--delay: 0.8s;"><a href="./south.html">South India</a></button>
-</div>
+  <!-- Main Content -->
+  <main>
+    <!-- Buttons -->
+    <div class="button-container">
+       <button><a href="./east.html">East India</a></button> 
+       <button><a href="./west.html">West India</a></button> 
+       <button><a href="./north.html">North India</a></button> 
+       <button><a href="./south.html">South India</a></button>
+       <button><a href="./spritual.html">Spritual</a></button>
+    </div>
 
-  <!-- Image Gallery -->
-  <div class="image-gallery">
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Darjeeling-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Darjeeling">
-      <div class="overlay">Darjeeling</div>
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Darjeeling-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Darjeeling">
+        <div class="overlay">Darjeeling</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Pelling-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Pelling">
+        <div class="overlay">Pelling</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Udaipur-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Udaipur">
+        <div class="overlay">Udaipur</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2021/12/Amritsar-imghh.jpg?w=1000&ssl=1" alt="Amritsar">
+        <div class="overlay">Amritsar</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/07/Tawang-Arunachal-Pradesh-1.webp?w=500&ssl=1" alt="Tawang">
+        <div class="overlay">Tawang</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Ladakh-Tour-India-Tour-India-Travel.webp?w=500&ssl=1" alt="Ladakh">
+        <div class="overlay">Ladakh</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Kerala-Tour-India-Tour-India-Travel.webp?w=500&ssl=1" alt="Kerala">
+        <div class="overlay">Splendor of Kerala</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Rajasthan-Tour-India-Tour-and-India-Travel.webp?w=500&ssl=1" alt="Rajasthan">
+        <div class="overlay">Magical Rajasthan</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Golden-Triangle-Tour.webp?w=500&ssl=1" alt="Golden Triangle">
+        <div class="overlay">Golden Triangle</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/07/Meghalaya-Tour-packages-India-travel.webp?w=500&ssl=1" alt="Meghalaya">
+        <div class="overlay">Meghalaya</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Karnataka-Tour-India-Tour-India-Travel.webp?w=500&ssl=1" alt="Karnataka">
+        <div class="overlay">Karnataka</div>
+      </div>
+      <div class="img-container">
+        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Rishikesh-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Rishikesh">
+        <div class="overlay">Rishikesh</div>
+      </div>
     </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Pelling-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Pelling">
-      <div class="overlay">Pelling</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Udaipur-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Udaipur">
-      <div class="overlay">Udaipur</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2021/12/Amritsar-imghh.jpg?w=1000&ssl=1" alt="Amritsar">
-      <div class="overlay">Amritsar</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/07/Tawang-Arunachal-Pradesh-1.webp?w=500&ssl=1" alt="Tawang">
-      <div class="overlay">Tawang</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Ladakh-Tour-India-Tour-India-Travel.webp?w=500&ssl=1" alt="Ladakh">
-      <div class="overlay">Ladakh</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Kerala-Tour-India-Tour-India-Travel.webp?w=500&ssl=1" alt="Kerala">
-      <div class="overlay">Splendor of Kerala</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Rajasthan-Tour-India-Tour-and-India-Travel.webp?w=500&ssl=1" alt="Rajasthan">
-      <div class="overlay">Magical Rajasthan</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Golden-Triangle-Tour.webp?w=500&ssl=1" alt="Golden Triangle">
-      <div class="overlay">Golden Triangle</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/07/Meghalaya-Tour-packages-India-travel.webp?w=500&ssl=1" alt="Meghalaya">
-      <div class="overlay">Meghalaya</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/03/Karnataka-Tour-India-Tour-India-Travel.webp?w=500&ssl=1" alt="Karnataka">
-      <div class="overlay">Karnataka</div>
-    </div>
-    <div class="img-container">
-      <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2025/04/Rishikesh-best-places-to-visit-in-india.webp?w=500&ssl=1" alt="Rishikesh">
-      <div class="overlay">Rishikesh</div>
-    </div>
-  </div>
+  </main>
+</br></br></br>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h2 class="footer-title">Explore Incredible India 🇮🇳</h2>
+      <p class="footer-description">Discover the culture, colors, and charm of Indian destinations.</p>
+      <div class="footer-icons">
+        <a href="https://www.instagram.com"target="_blank" aria-label="Instagram">
+          <img src="./../images/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com"target="_blank" aria-label="Facebook">
+          <img src="./../images/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.twitter.com"target="_blank" aria-label="Twitter">
+          <img src="./../images/twitter.png" alt="Twitter">
+        </a>
+      </div>
+      <p class="footer-bottom">&copy; 2025 Incredible India. All Rights Reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
