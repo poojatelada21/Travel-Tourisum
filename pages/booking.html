@@ -28,6 +28,58 @@
       text-align: center;
     }
 
+      /* ========== NAVBAR STYLES ========== */
+.navbar {
+  width: 100%;
+  background:#5A3E2D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  position: fixed;
+  top: 0px;
+  left:0;
+  z-index: 999;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #f4c842;
+}
+
+/* ✅ Responsive for small screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #333;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+  }
+}
+     
     /* Header outside the container */
     header h1 {
       font-size: 2.8rem;
@@ -165,9 +217,92 @@
   0%, 100% { border-color: transparent }
   50% { border-color: rgba(255, 68, 0, 0.863); }
 }
+
+/* Footer Styling */
+.footer {
+  background: #5A3E2D;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  position: fixed;  /* Stays at the bottom */
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.footer-description {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-icons a img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-icons a:hover img {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
+
+.footer-bottom {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ✅ Responsive for small screens */
+@media (max-width: 768px) {
+  .footer-title {
+    font-size: 18px;
+  }
+  
+  .footer-icons a img {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .footer-description {
+    font-size: 13px;
+  }
+}
+
+
   </style>
 </head>
 <body>
+  
+  <!-- ===== NAVBAR ===== --->
+<nav class="navbar">
+  <div class="logo">Incredible india</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Packages</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
   <!-- Header outside container -->
   <header>
     <div class="typing">
@@ -183,5 +318,24 @@
       <button class="nav-btn"><i class="fas fa-taxi"></i><a href="cabs.html"> Cab</a></button>
     </div>
   </div>
+  <!----footer--->
+  <footer class="footer">
+  <div class="footer-content">
+    <h2 class="footer-title">Explore Incredible India 🇮🇳</h2>
+    <p class="footer-description">Discover the culture, colors, and charm of Indian destinations.</p>
+    <div class="footer-icons">
+      <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+        <img src="./../images/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+        <img src="./../images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+        <img src="./../images/twitter.png" alt="Twitter">
+      </a>
+    <p class="footer-bottom">&copy; 2025 Incredible India. All Rights Reserved.</p>
+  </div>
+</footer>
+
 </body>
 </html>
