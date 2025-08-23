@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Packages</title>
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f8f3ef;
+    }
+   /* ========== NAVBAR STYLES ========== */
+ /* ✅ Navbar */
+    .navbar {
+      width: 100%;
+      background: #5A3E2D;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #f4c842;
+    }
+
+    /* ✅ Image Container */
+      .image-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .image-box {
+    width: 100%;
+    max-width: 1800px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .image-box img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+
+
+
+    /* ✅ Centered Text */
+    .package-title{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 50px;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px 30px;
+      border-radius: 10px;
+    }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    padding: 0px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+  }
+
+  .outer-container {
+    position: relative;
+    margin: 30px 0;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scroll-behavior: smooth;
+    padding: 10px;
+  }
+
+  .card-wrapper {
+    flex: 0 0 auto;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .card h3 {
+    margin: 12px 0 8px;
+    font-size: 20px;
+    color: #444;
+  }
+
+  .card p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 12px;
+  }
+
+  .card button {
+    padding: 10px 18px;
+    background: rgba(255, 68, 0, 0.863);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: rgb(78, 5, 5);
+    border: none;
+    font-size: 40px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  .scroll-left {
+    left: 5px;
+  }
+
+  .scroll-right {
+    right: 5px;
+  }
+
+  
+  /* tying animation*/
+   @media screen and (max-width: 768px) {
+  .typing {
+    font-size: 16px;       /* Smaller text on mobile */
+    animation: typing 3s steps(25) forwards, blink 0.6s infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 25ch; }    /* Shorter width for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .typing {
+    font-size: 14px;
+    animation: typing 2.5s steps(20) forwards, blink 0.6s infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 20ch; }
+  }
+}
+
+.typing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height:1.2rem;
+}
+
+
+.typing {
+  margin: 2px auto;
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  border-right: 2px solid orange;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 5s steps(30, end) forwards;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-top: 0px;
+}
+
+
+.i {
+  color: rgba(255, 68, 0, 0.863);
+  font-weight: bold;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 30ch }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: rgba(255, 68, 0, 0.863); }
+}
+/*container section*/
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f8f8f8;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 100%;
+        max-width: 1200px;
+        margin: 30px auto;
+        background:#b39786;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    /* Left Text Section */
+    .text-section {
+        width: 50%;
+        padding: 40px;
+    }
+
+    .text-section h2 {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .text-section h1 {
+        font-size: 40px;
+        color: #e63946;
+        font-family: 'Georgia', serif;
+        margin-bottom: 10px;
+    }
+
+    .text-section h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .text-section p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+        .container {
+            flex-direction: column;
+        }
+        .text-section, .image-section {
+            width: 100%;
+        }
+        .text-section {
+            padding: 20px;
+        }
+    }
+     .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    color: rgb(78, 5, 5);
+    border: none;
+    font-size: 40px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+
+  .scroll-left {
+    left: 5px;
+  }
+
+  .scroll-right {
+    right: 5px;
+  }
+
+  .wrapper {
+    position: relative;
+    width: 80%;
+    margin: auto;
+  }
+  .h1{
+    color: #fff;
+  }
+  /* Footer Styling */
+.footer {
+  background: #5A3E2D;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  position: fixed;  /* Stays at the bottom */
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.footer-description {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-icons a img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-icons a:hover img {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
+
+.footer-bottom {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ✅ Responsive for small screens */
+@media (max-width: 768px) {
+  .footer-title {
+    font-size: 18px;
+  }
+  
+  .footer-icons a img {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .footer-description {
+    font-size: 13px;
+  }
+}
+
+</style>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="logo">Incredible india</div>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./packages.html">Packages</a></li>
+    <li><a href="./about.html">About</a></li>
+    <li><a href="./contact.html">Contact</a></li>
+  </ul>
+</nav>
+<!-- ✅ NAVBAR END -->
+
+         
+  <!-- image container-->
+   <div class="image-section">
+  <div class="image-box">
+    <img src="./../images/beautiful-view-wooden-huts-ocean-captured-thailand.jpg" alt="Summer Collection" />
+    <div class="package-title">Packages</div>
+  </div>
+</div>
+
+<!-- Right Image Section -->
+   
+  <br><br>
+<div class="typing">
+    <h3 class="typing">Most Popular<i class="i"> Destinatons </i></h3></div>
+<div class="outer-container">
+  <button class="scroll-btn scroll-left" onclick="scrollLeft(this)">&#10094;</button>
+  <div class="container">
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/east-india nature.jpg" alt="Goa Beach">
+        <h3>Goa</h3>
+        <p>Experiance the beautiful view</p>
+        <p>₹ 5000/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/budha.jpg" alt="Manali">
+        <h3>Manali</h3>
+        <p>Snowy mountains and adventure.</p>
+        <p>₹ 4300/Per Person</p>
+        <p>7 day/5 Nights</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/east-india.jpg" alt="Kerala">
+        <h3>Kerala</h3>
+        <p>Backwaters and greenery.</p>
+        <p>₹ 7000/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/east-india1.jpg" alt="Jaipur">
+        <h3>Jaipur</h3>
+        <p>Enjoy the beautiful view</p>
+        <p>₹ 6000/Per Person</p>
+        <p>5 day/3 Nights</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+     <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/bali indonesia.jpeg" alt="Jaipur">
+        <h3>Jaipur</h3>
+        <p>Experiance the bali indonesia</p>
+        <p>₹ 4600/Per Person</p>
+        <p>5 day/4Nights</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+     <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/gantok.webp" alt="Jaipur">
+        <h3>Gantok</h3>
+        <p>Royal heritage and forts.</p>
+        <p>₹ 9000/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+  </div>
+  <button class="scroll-btn scroll-right" onclick="scrollRight(this)">&#10095;</button>
+  
+</div>
+
+<div class="typing">
+    <h3 class="typing">Most Popular<i class="i"> Destinatons </i></h3></div>
+<div class="outer-container">
+  <button class="scroll-btn scroll-left" onclick="scrollLeft(this)">&#10094;</button>
+  <div class="container">
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Jaisalmer.webp" alt="Leh Ladakh">
+        <h3>JAISALMER</h3>
+        <p>Enjoy the beautifol view</p>
+        <p>₹ 5000/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Kovalam.webp" alt="Rishikesh">
+        <h3>KOVALAM</h3>
+        <p>₹ 7000/Per Person</p>
+        <p>5 day/4 Nights</p>
+        <p>Experiance the  view of kovalam</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Munnar.webp" alt="Kedarnath">
+        <h3>MUNNAR</h3>
+        <p>₹ 6520/Per Person</p>
+        <p>7 day/6 Nights</p>
+        <p> Experiance Western Ghats of Kerala</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Mumbai.webp" alt="Andaman">
+        <h3>MUMBAI</h3>
+        <p>₹ 4020/Per Person</p>
+        <p>9 day/8 Nights</p>
+        <p> Explore beautifully blends modernity </p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Goa-Travel.webp" alt="Andaman">
+        <h3>GOA</h3>
+        <p>₹ 6520/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <p>Enjoy the beautiful sunset of goa</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Udaipur-Imghh.webp" alt="Andaman">
+        <h3>UDAIPUR</h3>
+        <p>₹ 6000/Per Person</p>
+        <p>4 day/3 Nights</p>
+        <p> Experiance  the romantic destinations  </p>
+        <button>Book Now</button>
+      </div>
+    </div>
+  </div>
+  <button class="scroll-btn scroll-right" onclick="scrollRight(this)">&#10095;</button>
+</div>
+
+<div class="typing">
+    <h3 class="typing">Most Popular<i class="i"> Destinatons </i></h3></div>
+<div class="outer-container">
+  <button class="scroll-btn scroll-left" onclick="scrollLeft(this)">&#10094;</button>
+  <div class="container">
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Jaipur.webp" alt="Maldives">
+        <h3>JAIPUR</h3>
+        <p>₹ 6000/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <p> View the Pink City of India</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Jodhpur.webp" alt="Dubai">
+        <h3>JODHAPUR</h3>
+        <p>₹ 8000/Per Person</p>
+        <p>5 day/4 Nights</p>
+        <p>Explore the Blue City</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Leh.webp" alt="Singapore">
+        <h3>LEH</h3>
+        <p>₹ 8500/Per Person</p>
+        <p>6 day/5 Nights</p>
+        <p>Enjoy the nature of leh</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Manali.webp" alt="Paris">
+        <h3>MANALI</h3>
+        <p>₹ 3900/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <p>Explore the hills in manali</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+     <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Nubra-Valley.webp" alt="Paris">
+        <h3>NUBAR-VALLY</h3>
+        <p>₹ 2000/Per Person</p>
+        <p>5 day/4 Nights</p>
+        <p> The beautiful place</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+     <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Rishikesh-Tour.webp" alt="Paris">
+        <h3>RISHIKESH</h3>
+        <p>₹ 8000/Per Person</p>
+        <p>6 day/5 Nights</p>
+        <p> The most popular place . </p>
+        <button>Book Now</button>
+      </div>
+    </div>
+  </div>
+  <button class="scroll-btn scroll-right" onclick="scrollRight(this)">&#10095;</button>
+</div>
+
+<div class="typing">
+    <h3 class="typing">Most Popular<i class="i"> Destinatons </i></h3></div>
+<div class="outer-container">
+  <button class="scroll-btn scroll-left" onclick="scrollLeft(this)">&#10094;</button>
+  <div class="container">
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Chennai.webp" alt="New York">
+        <h3>CHENNAI</h3>
+         <p>₹ 9000/Per Person</p>
+         <p>3 day/2 Nights</p>
+        <p>The lagest city of tamil-nadu</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Khajjiar.webp" alt="London">
+        <h3>London</h3>
+         <p>₹ 8000/Per Person</p>
+         <p>5 day/4 Nights</p>
+        <p>Explore the Mini Switzerland of India.</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Kochi.webp" alt="Bali">
+        <h3>Bali</h3>
+         <p>₹ 9100/Per Person</p>
+         <p>4 day/3 Nights</p>
+        <p>Enjoy the Nature of bali and experiance the nature</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Madurai-Imghh-.webp" alt="Thailand">
+        <h3>MADHURAI</h3>
+        <p>₹ 8900/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <p>Explore the Temple City of India,</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Marari.webp" alt="Thailand">
+        <h3>MARARI</h3>
+        <p>₹ 10,000/Per Person</p>
+        <p>5 day/4 Nights</p>
+        <p>Enjoy the beautiful view of ocean</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="./../images/Periyar.webp" alt="Thailand">
+        <h3>PERIYAR</h3>
+        <p>₹ 12000/Per Person</p>
+        <p>3 day/2 Nights</p>
+        <p>Enjoy the view  nature of periyar</p>
+        <button>Book Now</button>
+      </div>
+    </div>
+  </div>
+    <!----footer--->
+  <footer class="footer">
+  <div class="footer-content">
+    <h2 class="footer-title">Explore Incredible India 🇮🇳</h2>
+    <p class="footer-description">Discover the culture, colors, and charm of Indian destinations.</p>
+    <div class="footer-icons">
+      <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+        <img src="./../images/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+        <img src="./../images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+        <img src="./../images/twitter.png" alt="Twitter">
+      </a>
+    <p class="footer-bottom">&copy; 2025 Incredible India. All Rights Reserved.</p>
+  </div>
+</footer>
+  <button class="scroll-btn scroll-right" onclick="scrollRight(this)">&#10095;</button>
+</div>
+
+<script>
+function scrollLeft(btn) {
+  const container = btn.parentElement.querySelector('.container');
+  const card = container.querySelector('.card');
+  const style = window.getComputedStyle(card);
+  const cardWidth = card.offsetWidth + parseInt(style.marginRight);
+
+  let newScrollLeft = container.scrollLeft - cardWidth;
+  if (newScrollLeft < 0) newScrollLeft = 0;
+
+  container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+}
+
+function scrollRight(btn) {
+  const container = btn.parentElement.querySelector('.container');
+  const card = container.querySelector('.card');
+  const style = window.getComputedStyle(card);
+  const cardWidth = card.offsetWidth + parseInt(style.marginRight);
+
+  const maxScrollLeft = container.scrollWidth - container.clientWidth;
+  let newScrollLeft = container.scrollLeft + cardWidth;
+
+  if (newScrollLeft > maxScrollLeft) {
+    newScrollLeft = maxScrollLeft;
+  }
+
+  container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
