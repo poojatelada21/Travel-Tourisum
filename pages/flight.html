@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Reservation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0ff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      margin: 30px auto;
+      box-shadow: 0 0 15px rgb(124, 42, 42);
+      border-radius: 12px;
+      animation: jump 1.5s ease;
+    }
+
+    @keyframes jump {
+      0% { transform: translateY(-100px); opacity: 0; }
+      50% { transform: translateY(20px); opacity: 1; }
+      100% { transform: translateY(0); }
+    }
+
+    .header img {
+      width: 100%;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    /* Typing animation for Flight Reservation heading */
+    @media screen and (max-width: 768px) {
+  .typing {
+    font-size: 16px;       /* Smaller text on mobile */
+    animation: typing 3s steps(25) forwards, blink 0.6s infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 25ch; }    /* Shorter width for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .typing {
+    font-size: 14px;
+    animation: typing 2.5s steps(20) forwards, blink 0.6s infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 20ch; }
+  }
+}
+
+.typing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height:1.2rem;
+}
+
+
+.typing {
+  margin: 2px auto;
+  text-align: center;
+  font-size: 25px;
+  color: #333;
+  border-right: 2px solid orange;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 5s steps(20, end) forwards;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-top: 0px;
+}
+
+
+.i {
+  color: rgba(255, 68, 0, 0.863);
+  font-weight: bold;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 20ch }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: rgba(255, 68, 0, 0.863); }
+}
+    /* Form Labels and Inputs */
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 6px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #333;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+    }
+
+    input::placeholder {
+      color: #999;
+      font-style: italic;
+    }
+
+    .dob-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .dob-container input {
+      flex: 1;
+    }
+
+    /* Button Styling */
+    button {
+      width: 100%;
+      height: 50px;
+      padding: 12px;
+      background: #ff9913;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      text-align: left;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .dob-container {
+        flex-direction: column;
+      }
+      .dob-container input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://img.freepik.com/free-vector/time-travel-vector-flyer-with-white-copy-space-sky-with-airplane_134830-1061.jpg?t=st=1742623316~exp=1742626916~hmac=2dac17751e634b7d674aa5bc63b3f490ab517b7bde2c5f2b3bb98ab200a7d20f&w=1800" alt="Airplane Image">
+    </div>
+
+    <!-- Typing Heading -->
+    <div class="typing">
+    <h3 class="typing">Flight<i class="i"> Reservation</i></h3></div>
+    <!-- Subheading -->
+    <p>Please make sure that you fill in the name which is in your passport.</p>
+
+    <form>
+      <div class="radio-group">
+        <label><input type="radio" name="trip" value="one-way" checked> One Way</label>
+        <label><input type="radio" name="trip" value="round-trip"> Round Trip</label>
+      </div>
+
+      <label for="first-name">Passenger Name</label>
+      <div class="dob-container">
+        <input type="text" id="first-name" placeholder="First Name" required>
+        <input type="text" id="last-name" placeholder="Last Name" required>
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter Email Address" required>
+
+      <button type="submit">Search Flight</button>
+    </form>
+  </div>
+</body>
+</html>
