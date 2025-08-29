@@ -163,26 +163,35 @@
         }
     }
 
-     /* ✅ Image Container */
-      .image-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 0;
-  }
-
-  /* ✅ Make the image container wider */
-.image-box {
-  max-width: 100%;  /* Ensures it can stretch full width */
-  width: 100%;      /* Take full available space */
+    .image-box {
+  max-width: 100%;
+  width: 1700px;
 }
 
 .image-box img {
   width: 100%;
   height: auto;
-  max-height: 500px; 
+  max-height: 500px;
 }
 
+/* ✅ Responsive Media Queries */
+@media screen and (max-width: 1024px) {
+  .image-box img {
+    max-height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-box img {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image-box img {
+    max-height: 150px;
+  }
+}
     /* ===== Outer Container ===== */
     .outer-container {
       display: flex;
@@ -201,9 +210,9 @@
 
     /* Scroll Buttons */
     .scroll-btn {
-      background-color: rgba(0, 0, 0, 0.5);
-      color: #fff;
+      color:black;
       border: none;
+     background-color: transparent;
       font-size: 24px;
       padding: 10px 15px;
       cursor: pointer;
@@ -213,7 +222,8 @@
     }
 
     .scroll-btn:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: transparent;
+
     }
 
 
@@ -242,12 +252,12 @@
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.2s ease;
       cursor: pointer;
       text-align: center;
       padding-bottom: 15px;
       height:auto;
-      width:220px;
+      width:250px;
     }
 
     .card:hover {
@@ -279,7 +289,7 @@
     .card button {
       margin-top: 10px;
       padding: 10px 20px;
-      background-color: #ff6b6b;
+      background-color: #ffa16bff;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -301,7 +311,146 @@
       .card h3 {
         font-size: 1.1rem;
       }
-    }
+    }/* ===========================
+   ✅ Responsive Design
+   =========================== */
+
+/* 🔹 Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  nav {
+    padding: 12px 18px;
+  }
+
+  nav .logo {
+    font-size: 20px;
+  }
+
+  .outer-container {
+    width: 95%;
+    padding: 10px 0;
+  }
+
+  .container {
+    width: 85%;
+    gap: 15px;
+  }
+
+  .card-wrapper {
+    width: 220px;
+  }
+
+  .card {
+    width: 220px;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .scroll-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+/* 🔹 Large Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 10px 15px;
+  }
+
+  .image-box img {
+    max-height: 300px; /* Reduce banner image height */
+  }
+
+  .outer-container {
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .container {
+    width: 90%;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .card-wrapper {
+    width: 180px;
+  }
+
+  .card {
+    width: 180px;
+  }
+
+  .card img {
+    height: 140px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+
+  .scroll-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+/* 🔹 Small Mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  nav .logo {
+    font-size: 18px;
+  }
+
+  .outer-container {
+    padding: 5px 0;
+  }
+
+  .container {
+    width: 100%;
+    gap: 9px;
+  }
+
+  .card-wrapper {
+    width: 150px;
+  }
+
+  .card {
+    width: 140px;
+    height:auto;
+    gap: 10px;
+  }
+
+  .card img {
+    height: 100px;
+  }
+
+  .card h3 {
+    font-size: 0.9rem;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+
+  .card button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .scroll-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -342,12 +491,12 @@
 <div class="outer-container">
   <button class="scroll-btn scroll-left">&#10094;</button>
   <div class="container">
-    <div class="card-wrapper"><div class="card"><img src="./images/east-india nature.jpg" alt="Goa"><h3>Goa</h3><p>Experience the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./images/budha.jpg" alt="Manali"><h3>Manali</h3><p>Snowy mountains and adventure</p><p>₹ 4300 / Per Person</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./images/east-india.jpg" alt="Kerala"><h3>Kerala</h3><p>Backwaters and greenery</p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./images/Jaisalmer.webp" alt="Jaisalmer"><h3>Jaisalmer</h3><p>Golden City of Rajasthan</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/darjeeling.jpg" alt="Darjeeling"><h3>Darjeeling</h3><p>Tea gardens and mountains</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/agra.jpg" alt="Agra"><h3>Agra</h3><p>Home of the Taj Mahal</p><p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/east-india nature.jpg" alt="Ancient Siam"><h3>Ancient Siam</h3><p>Enjoy the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/east-india.jpg" alt="Poiana Brason"><h3>Poiana Brason</h3><p>Snowy mountains & adventure</p><p>₹ 4300 / Per Pe+rson</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/east-india1.jpg" alt="Humans Tomb"><h3>Humans Tomb</h3><p>Backwaters and greenery</p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/budha.jpg" alt="Pelling"><h3>Pelling</h3><p>Enjoy the Nature in Pelling</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/bali indonesia.jpeg" alt="Bali indonesia"><h3>Bali Indonesia</h3><p>Enjoy the view of nature</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/gantok.webp" alt="Ghantok"><h3>Ghantok</h3><p>Enjoy the beautiful snow</p><p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
   </div>
   <button class="scroll-btn scroll-right">&#10095;</button>
 </div>
@@ -356,12 +505,12 @@
 <div class="outer-container">
   <button class="scroll-btn scroll-left">&#10094;</button>
   <div class="container">
-    <div class="card-wrapper"><div class="card"><img src="images/Jaisalmer.webp" alt="Jaisalmer"><h3>Jaisalmer</h3><p>Golden City of Rajasthan</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/Kovalam.webp" alt="Darjeeling"><h3>Darjeeling</h3><p>Tea gardens and mountains</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/Munnar.webp" alt="Agra"><h3>Agra</h3><p>Home of the Taj Mahal</p><p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/Mumbai.webp" alt="Goa"><h3>Goa</h3><p>Experience the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/Goa-Travel.webp" alt="Manali"><h3>Manali</h3><p>Snowy mountains and adventure</p><p>₹ 4300 / Per Person</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/Udaipur-Imghh.webp" alt="Kerala"><h3>Kerala</h3><p>Backwaters and greenery</p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Jaisalmer.webp" alt="Jaisalmer"><h3>Jaisalmer</h3><p>Golden City of Rajasthan</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Kovalam.webp" alt="Kovalam"><h3>Kovalam</h3><p>Tea gardens and mountains</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Munnar.webp" alt="Munnar"><h3>Munnar</h3><p>Enjoy the  beautiful view</p><p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Mumbai.webp" alt="Mumbai"><h3>Mumbai</h3><p>Experience the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Goa-Travel.webp" alt="goa"><h3>Goa</h3><p>Snowy mountains and adventure</p><p>₹ 4300 / Per Person</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Udaipur-Imghh.webp" alt="udaipur"><h3>Udaipur</h3><p>Backwaters and greenery in Udaipur </p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
   </div>
   <button class="scroll-btn scroll-right">&#10095;</button>
 </div>
@@ -370,12 +519,12 @@
 <div class="outer-container">
   <button class="scroll-btn scroll-left">&#10094;</button>
   <div class="container">
-    <div class="card-wrapper"><div class="card"><img src="./../images/darjeeling.jpg" alt="Darjeeling"><h3>Darjeeling</h3><p>Tea gardens and mountains</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/east-india nature.jpg" alt="Goa"><h3>Goa</h3><p>Experience the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/budha.jpg" alt="Manali"><h3>Manali</h3><p>Snowy mountains and adventure</p><p>₹ 4300 / Per Person</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/east-india.jpg" alt="Kerala"><h3>Kerala</h3><p>Backwaters and greenery</p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/Jaisalmer.webp" alt="Jaisalmer"><h3>Jaisalmer</h3><p>Golden City of Rajasthan</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/agra.jpg" alt="Agra"><h3>Agra</h3><p>Home of the Taj Mahal</p><p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Jaipur.webp" alt="Jaipur"><h3>Jaipur</h3><p>Golden City of Rajasthan</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Jodhpur.webp" alt="Jodhpur"><h3>Jodhpur</h3><p>Experience the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Leh.webp" alt="Leh"><h3>Leh</h3><p>Snowy mountains and adventure</p><p>₹ 4300 / Per Person</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Manali.webp" alt="Manali"><h3>Manali</h3><p>Backwaters and greenery</p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Nubra-Valley.webp" alt="Nubar valley"><h3>Nubar valley</h3><p> Experiance the nature</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Rishikesh-Tour.webp" alt="Rishikesh"><h3>Rishikesh</h3><p>Enjoy the  beautiful view</p><p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
   </div>
   <button class="scroll-btn scroll-right">&#10095;</button>
 </div>
@@ -384,12 +533,12 @@
 <div class="outer-container">
   <button class="scroll-btn scroll-left">&#10094;</button>
   <div class="container">
-    <div class="card-wrapper"><div class="card"><img src="./../images/agra.jpg" alt="Agra"><h3>Agra</h3><p>Home of the Taj Mahal</p><p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/darjeeling.jpg" alt="Darjeeling"><h3>Darjeeling</h3><p>Tea gardens and mountains</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/east-india nature.jpg" alt="Goa"><h3>Goa</h3><p>Experience the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/budha.jpg" alt="Manali"><h3>Manali</h3><p>Snowy mountains and adventure</p><p>₹ 4300 / Per Person</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/east-india.jpg" alt="Kerala"><h3>Kerala</h3><p>Backwaters and greenery</p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
-    <div class="card-wrapper"><div class="card"><img src="./../images/Jaisalmer.webp" alt="Jaisalmer"><h3>Jaisalmer</h3><p>Golden City of Rajasthan</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Chennai.webp" alt="Chennai"><h3>Chennai</h3><p></p>Tea gardens and mountains<p>₹ 4800 / Per Person</p><p>2 Day / 1 Night</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Khajjiar.webp" alt="Khajjiar"><h3>Khajjiar</h3><p>Enjoy the view</p><p>₹ 5500 / Per Person</p><p>5 Day / 4 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Kochi.webp" alt="Kochi"><h3>Kochi</h3><p>Experience the beautiful view</p><p>₹ 5000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Madurai-Imghh-.webp" alt="Madhurai"><h3>Madhurai</h3><p>Enjoy the nature madhurai</p><p>₹ 4300 / Per Person</p><p>7 Day / 5 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Marari.webp" alt="Marari"><h3>Marari</h3><p>Experiance the nature of Marari</p><p>₹ 7000 / Per Person</p><p>3 Day / 2 Nights</p><button>Book Now</button></div></div>
+    <div class="card-wrapper"><div class="card"><img src="./../images/Periyar.webp" alt="Periyar"><h3>Periyar</h3><p>Enjoy the beautiful view</p><p>₹ 6000 / Per Person</p><p>4 Day / 3 Nights</p><button>Book Now</button></div></div>
   </div>
   <button class="scroll-btn scroll-right">&#10095;</button>
 </div>
