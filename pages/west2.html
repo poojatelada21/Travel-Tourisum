@@ -163,6 +163,58 @@
     height: auto;
   }
 }
+ /* ===== Base Button Styling ===== */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background:  #ff5200;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff5200;
+  transform: scale(1.05);
+}
+
+/* ===== Responsive Media Queries ===== */
+
+/* For tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+
+/* For large mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .btn {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}
+
+/* For small mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .btn {
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 6px;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -195,3 +247,9 @@ The town’s tropical climate ensures warm, beach-friendly weather almost year-r
      <img src="./../images/nathula pass.jpeg" alt="img 2">
       <img src="./../images/rumtek monastery.jpeg" alt="img 3">
        <img src="./../images/road.jpeg" alt="img 4">
+       </div>
+        <div class="button-container">
+  <a href="./packages.html" class="btn">Explore More</a>
+</div>
+</body>
+</html>
