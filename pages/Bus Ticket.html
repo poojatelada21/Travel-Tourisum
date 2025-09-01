@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Ticket Prices</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eef2f7;
+      text-align: center;
+    }
+
+    section {
+      margin: 20px auto;
+      width: 95%;
+      max-width: 1200px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    thead tr {
+      background:rgb(124, 42, 42);
+      color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .book-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #ff9913;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-size: 13px;
+    }
+
+    .book-btn:hover {
+      background: #ff9913;
+      transform: scale(1.05);
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 28ch }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: #ff9913; }
+    }
+
+    h3 {
+      font-size: 2rem;
+      color: #333;
+      border-right: 2px solid #ff9913;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 5s steps(28,end) forwards, blink 0.6s infinite;
+    }
+
+    @media screen and (max-width:768px){
+      table { font-size: 12px; }
+      h3 { font-size: 18px; }
+    }
+    @media screen and (max-width:480px){
+      table { font-size: 11px; }
+      th, td { padding: 8px; }
+      .book-btn { padding: 6px 10px; font-size: 12px; }
+      h3 { font-size: 16px; }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const bookButtons = document.querySelectorAll(".book-btn");
+      bookButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          alert("Bus booking confirmed!");
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div style="display:flex; justify-content:center; align-items:center; padding:20px;">
+    <h3>Bus Ticket <i style="color:rgba(255, 68, 0, 0.863); font-weight:bold;">Prices</i></h3>
+  </div>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>Bus</th>
+          <th>From</th>
+          <th>To (Destination)</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Price (INR)</th>
+          <th>Book</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>KSRTC Express</td><td>Bangalore</td><td>Chennai</td><td>06:00 AM</td><td>11:00 AM</td><td>₹550</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>RedBus Deluxe</td><td>Chennai</td><td>Kochi</td><td>07:00 AM</td><td>01:00 PM</td><td>₹850</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>VRL Travels</td><td>Chennai</td><td>Madurai</td><td>09:00 AM</td><td>02:00 PM</td><td>₹700</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>SRS Travels</td><td>Kochi</td><td>Marari</td><td>06:30 AM</td><td>08:00 AM</td><td>₹300</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Orange Tours</td><td>Kochi</td><td>Periyar</td><td>08:00 AM</td><td>11:30 AM</td><td>₹450</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>GreenLine</td><td>Delhi</td><td>Jaipur</td><td>05:00 AM</td><td>09:00 AM</td><td>₹600</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>MSRTC AC</td><td>Pune</td><td>Leh</td><td>06:00 AM</td><td>08:00 PM</td><td>₹2,200</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Parveen Travels</td><td>Delhi</td><td>Manali</td><td>07:00 AM</td><td>04:00 PM</td><td>₹1,500</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Himachal Express</td><td>Delhi</td><td>Khajjir</td><td>06:30 AM</td><td>07:00 PM</td><td>₹1,800</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>VRL Express</td><td>Pune</td><td>Mumbai</td><td>05:00 AM</td><td>09:30 AM</td><td>₹500</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>SRS Deluxe</td><td>Mumbai</td><td>Goa</td><td>08:00 PM</td><td>06:00 AM</td><td>₹1,200</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Kallada Travels</td><td>Kochi</td><td>Munnar</td><td>07:00 AM</td><td>10:00 AM</td><td>₹400</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>WBSTC</td><td>Kolkata</td><td>Pavillion</td><td>06:00 AM</td><td>09:00 AM</td><td>₹650</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Delhi Darshan</td><td>Delhi</td><td>Poiana Brașov</td><td>05:30 AM</td><td>06:00 PM</td><td>₹3,000</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Agra Express</td><td>Agra</td><td>Humayun's Tomb</td><td>07:30 AM</td><td>12:00 PM</td><td>₹900</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Heritage Tours</td><td>Kolkata</td><td>Ancient Siam</td><td>06:00 AM</td><td>08:00 PM</td><td>₹2,500</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Paradise Travels</td><td>Chennai</td><td>Bali (Indonesia)</td><td>08:00 AM</td><td>Next Day</td><td>₹5,500</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>NorthEast Express</td><td>Kolkata</td><td>Gangtok</td><td>07:00 AM</td><td>06:00 PM</td><td>₹1,400</td><td><a href="#" class="book-btn">Book</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
