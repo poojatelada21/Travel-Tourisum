@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Assistant Chatbot</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+  body {
+    background: #cfccca;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .chat-container {
+    width: 400px;
+    max-width: 95%;
+    height: 600px;
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  .chat-header {
+    background: #5A3E2D;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    animation: slideDown 0.8s ease-in-out;
+  }
+  .chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f9f9f9;
+  }
+  .message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    animation: slideIn 0.4s ease-in-out;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .user-message { background: #2575fc; color: #fff; align-self: flex-end; }
+  .bot-message { background: #e4e6eb; color: #333; align-self: flex-start; }
+  .typing { font-style: italic; color: #666; font-size: 14px; }
+  .chat-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+  }
+  .chat-footer input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+  }
+  .chat-footer button {
+    margin-left: 10px;
+    padding: 12px 18px;
+    border: none;
+    background: rgba(255, 68, 0, 0.863);;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+  .chat-footer button:hover { background: rgba(255, 68, 0, 0.863); }
+  @keyframes fadeIn { from {opacity: 0; transform: scale(0.8);} to {opacity: 1; transform: scale(1);} }
+  @keyframes slideIn { from {transform: translateY(20px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+  @keyframes slideDown { from {transform: translateY(-50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+
+  /* Mobile Responsive */
+  @media(max-width: 480px) {
+    .chat-container { width: 95%; height: 90%; }
+    .chat-header { font-size: 18px; }
+    .chat-footer input { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="chat-header">Travel Assistant 👩🏻‍💼</div>
+  <div class="chat-body" id="chat-body">
+    <div class="bot-message message">Hello! 👋 I’m your travel assistant. Ask about destinations, weather, travel tips, packages, or best places by season. ✈️</div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="user-input" placeholder="Type your question...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatBody = document.getElementById('chat-body');
+  const userInput = document.getElementById('user-input');
+
+  // ✅ Destinations with details
+  const destinations = {
+    "goa": "🏖️ Goa: Beaches, nightlife, water sports. Best time: Nov–Feb.",
+    "manali": "❄️ Manali: Snowy mountains & adventure sports. Best time: Oct–Feb.",
+    "kerala": "🌴 Kerala: Backwaters & Ayurveda retreats. Best time: Sept–Mar.",
+    "jaipur": "🏰 Jaipur: Forts, palaces, and cultural heritage. Best time: Oct–Mar.",
+    "kashmir": "🌄 Kashmir: Valleys, lakes, and gardens. Best time: Mar–Oct.",
+    "andaman": "🏝️ Andaman: Clear waters, beaches, scuba diving. Best time: Oct–May."
+  };
+
+  // ✅ Weather Info
+  const weatherInfo = {
+    "goa": "☀️ Goa: Sunny & warm. Perfect for beaches!",
+    "manali": "❄️ Manali: Cold & snowy in winter, great for skiing!",
+    "kerala": "🌴 Kerala: Tropical & humid. Pleasant in winter.",
+    "jaipur": "☀️ Jaipur: Hot in summer, cool in winter.",
+    "kashmir": "❄️ Kashmir: Cold & snowy in winter, green in summer.",
+    "andaman": "☀️ Andaman: Warm & humid, ideal for water sports."
+  };
+
+  // ✅ Travel Tips
+  const travelTips = [
+    "✅ Pack light & smart.",
+    "✅ Carry both cash & cards.",
+    "✅ Stay hydrated during travel.",
+    "✅ Book flights & hotels early.",
+    "✅ Respect local traditions."
+  ];
+
+  // ✅ Season-wise best destinations
+  const seasonDestinations = {
+    "summer": "☀️ Summer Picks: Kashmir, Manali, Ladakh, Shimla, Darjeeling.",
+    "winter": "❄️ Winter Picks: Goa, Kerala, Andaman, Rann of Kutch, Jaipur.",
+    "monsoon": "🌧️ Monsoon Picks: Munnar, Coorg, Lonavala, Cherrapunji, Wayanad."
+  };
+
+  // ✅ Travel Packages
+  const packages = [
+    "🌴 Goa Beach Package – 3 Nights/2vDays  ₹7,999",
+    "❄️ Manali Snow Adventure – 5 Nights/4 Dayes  ₹3,499",
+    "🌄 Kashmir Paradise – 6 Nights/ 5 Days ₹9,999",
+    "🏝️ Andaman Honeymoon – 5 Nights/ 4 Days ₹10,999"
+  ];
+
+  // ✅ Main function
+  function sendMessage() {
+    const message = userInput.value.trim();
+    if (message === "") return;
+
+    addMessage(message, 'user-message');
+    userInput.value = "";
+
+    const typingMsg = document.createElement('div');
+    typingMsg.className = 'message bot-message typing';
+    typingMsg.innerText = "Typing...";
+    chatBody.appendChild(typingMsg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    setTimeout(() => {
+      typingMsg.remove();
+      let reply = getBotResponse(message.toLowerCase());
+      addMessage(reply, 'bot-message');
+    }, 1500);
+  }
+
+  function addMessage(text, className) {
+    const msg = document.createElement('div');
+    msg.className = 'message ' + className;
+    msg.innerText = text;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function getBotResponse(msg) {
+    // Check destinations
+    for (let place in destinations) {
+      if (msg.includes(place)) {
+        if (msg.includes("weather")) return weatherInfo[place];
+        return destinations[place];
+      }
+    }
+
+    // Check for weather keyword
+    if (msg.includes("weather")) {
+      return "🌤️ Please mention a destination like Goa, Manali, Kerala, Jaipur, or Kashmir.";
+    }
+
+    // Tips
+    if (msg.includes("tip")) return travelTips.join("\n");
+
+    // Season-based destinations
+    if (msg.includes("summer")) return seasonDestinations["summer"];
+    if (msg.includes("winter")) return seasonDestinations["winter"];
+    if (msg.includes("monsoon")) return seasonDestinations["monsoon"];
+
+    // Packages
+    if (msg.includes("package") || msg.includes("deal")) return packages.join("\n");
+
+    // Greetings
+    if (msg.includes("hello") || msg.includes("hi")) return "Hi there! 😊 How can I assist with your travel plans?";
+    
+    // Goodbye
+    if (msg.includes("bye")) return "Goodbye! 👋 Have a safe and happy journey!";
+
+    return "🤔 Sorry, I don’t have that info yet. Ask about destinations, weather, tips, packages, or season-based destinations.";
+  }
+
+  // Enter key event
+  userInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") sendMessage();
+  });
+</script>
+
+</body>
+</html>
