@@ -12,6 +12,12 @@
     box-sizing: border-box;
   }
 
+  html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   body {
     font-family: Arial, sans-serif;
   }
@@ -69,12 +75,136 @@
       padding: 11px;
     }
   }
+/* ====== Hamburger ====== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+      transition: all 0.3s ease;
+    }
+
+    /* ====== Mobile Menu ====== */
+    @media (max-width: 768px) {
+  .hamburger div {
+    width: 20px; 
+  }
+}
+
+    .nav-links {
+      position: fixed;
+      top: 0px; 
+      left: 0;
+      width: 60%;
+      height: 60vh;
+      background:rgba(196, 165, 146, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-100%);
+      transition: transform 0.4s ease-in-out;
+      overflow: hidden;
+    }
+
+    .nav-links.active {
+      transform: translateX(0);
+    }
+
+    .nav-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .nav-links ul li {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.4s ease;
+    }
+
+    .nav-links.active ul li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .nav-links.active ul li:nth-child(1) { transition-delay: 0.2s; }
+    .nav-links.active ul li:nth-child(2) { transition-delay: 0.3s; }
+    .nav-links.active ul li:nth-child(3) { transition-delay: 0.4s; }
+    .nav-links.active ul li:nth-child(4) { transition-delay: 0.5s; }
+
+    .nav-links ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links ul li a:hover {
+      color: #ff9800;
+    }
+
+    /* ====== Hamburger Animation ====== */
+    .hamburger.toggle div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.toggle div:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.toggle div:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .nav-links {
+  z-index: 999; /* current menu */
+}
+
+main {
+  position: relative;
+  z-index: 1; 
+}
+#mobileMenu {
+  background: rgba(196, 165, 146, 0.9); 
+  pointer-events: none; 
+}
+
+#mobileMenu.active {
+  pointer-events: auto; 
+}
+
+
+    /* ====== Responsive ====== */
+    @media screen and (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none; 
+  }
+  .nav-links#mobileMenu {
+    display: flex; 
+  }
+}
 
   /* Main content wrapper */
   main {
-    min-height: calc(100vh - 60px - 80px); /* Full height minus navbar & footer */
-    padding-top: 70px;  /* Space for navbar */
-    padding-bottom: 80px; /* Space for footer */
+    flex: 1;
+    padding-top: 70px;  
+    padding-bottom: 40px; 
   }
 
   .button-container {
@@ -146,36 +276,182 @@
     transform: translateY(0);
   }
 
-  /* Footer */
-  .footer {
-    background: #5A3E2D;
-    color: #fff;
-    text-align: center;
-    padding: 20px 10px;
-    width: 100%;
-    height: 120px; /* Fixed footer height */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
+  /* For tablets (width 768px and below) */
+@media (max-width: 768px) {
+  .image-gallery {
+    gap: 15px;
+    padding: 15px;
   }
 
-  .footer-content {
+  .img-container {
+    width: 220px;  /* reduce width */
+    height: 160px; /* reduce height */
+  }
+
+  .overlay {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* For mobile screens (width 480px and below) */
+@media (max-width: 480px) {
+  .image-gallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-top: 30px;
+  }
+
+  .img-container {
+    width: 90%;   
+    height: 200px;
+  }
+
+  .overlay {
+    font-size: 13px;
+    padding: 6px;
+  }
+}
+
+  /* Footer */
+.footer {
+  background: #5A3E2D;
+  color: #fff;
+  padding: 20px 15px; 
+  font-size: 14px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px; 
+}
+
+.footer-section {
+  flex: 1 1 250px;
+  margin: 10px 0;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #f4c842;
+}
+
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #f4c842;
+  color: #5A3E2D;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* ===== Mobile Footer Styles ===== */
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 5px 10px; /* smaller vertical and horizontal padding */
+  }
+
+  .footer-container {
+    flex-direction: column; /* stack sections vertically */
+    align-items: center;
+    text-align: center;
+    gap: 8px; /* space between sections */
+  }
+
+  .footer-section {
+    flex: 1 1 100%; /* full width */
+    margin: 3px 0;
+    padding: 0 5px;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .footer-section p,
+  .footer-section ul li a {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+
+  .social-icons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    gap: 5px;
+    margin-top: 3px;
+  }
+
+  .social-icons a {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    margin: 0;
   }
 
   .footer-bottom {
-    font-size: 13px;
-    opacity: 0.8;
+    font-size: 10px;
+    padding: 2px 0;
+    margin-top: 4px;
   }
+}
 
-  .footer-icons img {
-    width: 24px;
-    margin: 0 8px;
-  }
 </style>
 </head>
 <body>
@@ -185,11 +461,27 @@
     <ul class="nav-links">
       <li><a href="./../pages/index.html">Home</a></li>
       <li><a href="./../pages/packages.html">Packages</a></li>
+      <li><a href="./../pages/hotels.html">Hotels</a></li>
       <li><a href="./../pages/about.html">About</a></li>
       <li><a href="./../pages/contact.html">Contact</a></li>
     </ul>
+    <!-- ✅ Added Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </nav>
-
+    <!-- mobile device -->
+   <div class="nav-links" id="mobileMenu">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./packages.html">Packages</a></li>
+      <li><a href="./hotels.html">Hotels</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </div>
   <!-- Main Content -->
   <main>
     <!-- Buttons -->
@@ -253,26 +545,52 @@
       </div>
     </div>
   </main>
-</br></br></br>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <h2 class="footer-title">Explore Incredible India 🇮🇳</h2>
-      <p class="footer-description">Discover the culture, colors, and charm of Indian destinations.</p>
-      <div class="footer-icons">
-        <a href="https://www.instagram.com"target="_blank" aria-label="Instagram">
-          <img src="./../images/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://www.facebook.com"target="_blank" aria-label="Facebook">
-          <img src="./../images/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.twitter.com"target="_blank" aria-label="Twitter">
-          <img src="./../images/twitter.png" alt="Twitter">
-        </a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section about">
+      <h3>Incridible India</h3>
+      <br><br>
+      <p>Explore the beauty and culture of India with us. Your adventure starts here!</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/login?"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
       </div>
-      <p class="footer-bottom">&copy; 2025 Incredible India. All Rights Reserved.</p>
     </div>
-  </footer>
+
+    <div class="footer-section links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Tours</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section contact">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+      <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+      <p><i class="fas fa-envelope"></i> info@indiatravel.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 India Travel & Tourism | All Rights Reserved</p>
+  </div>
+</footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('toggle');
+    mobileMenu.classList.toggle('active');
+  });
+</script>
 </body>
 </html>

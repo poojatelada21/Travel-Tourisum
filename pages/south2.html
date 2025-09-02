@@ -162,21 +162,59 @@
     max-width: 90vw;
     height: auto;
   }
-  book-btn {
+   /* ===== Base Button Styling ===== */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn {
   display: inline-block;
-  padding: 10px 20px;
-  background: #0088cc;
-  color: white;
+  padding: 14px 28px;
+  background:  #ff5200;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
   text-decoration: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-.book-btn:hover {
-  background: #005f88;
+.btn:hover {
+  background: #ff5200;
+  transform: scale(1.05);
+}
+
+/* ===== Responsive Media Queries ===== */
+
+/* For tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+
+/* For large mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .btn {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}
+
+/* For small mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .btn {
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 6px;
+  }
 }
 
 }
+
   </style>
 </head>
 <body>
@@ -211,6 +249,8 @@
     <img src="./../images/chamba.jpeg" alt="img3">
     <img src="./../images/park.jpeg" alt="img4">
     </div> 
-     <button class="close-btn" onclick="closePopup()">Close</button>
+      <div class="button-container">
+  <a href="./packages.html" class="btn">Explore More</a>
+</div>
     </body>
     </html>

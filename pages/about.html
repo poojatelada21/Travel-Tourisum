@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Incredible India Tours</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* ===== Reset & Base ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  body {
+    background: #f9f9f9;
+    color: #333;
+  }
+
+  /* ===== Hero Section (Top Banner) ===== */
+  .hero {
+    background: url('https://i0.wp.com/indiatravel.com/wp-content/uploads/2021/12/Srinagar-imghh.jpg?w=1000&ssl=1') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+
+  /* ===== About Section ===== */
+  .about-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .about-image {
+    flex: 1 1 400px;
+    animation: slideIn 1.5s ease;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  .about-content {
+    flex: 1 1 500px;
+    animation: fadeInRight 2s ease;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #e67e22;
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .about-content ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .about-content ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  .about-content ul li i {
+    color: #e67e22;
+    margin-right: 8px;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-50px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+
+  /* ===== Our Team Section ===== */
+  .team-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: #fff;
+  }
+
+  .team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #e67e22;
+  }
+
+  .team-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .team-member {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .team-member:hover {
+    transform: scale(1.05);
+  }
+
+  .team-member img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .team-member h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .team-member p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  /* ===== Second Hero Section (Questions) ===== */
+  .hero-section {
+  width: 100%;
+  height: 60vh; /* reduced from 100vh */
+  background-color:  #b3927e;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 0 20px;
+  animation: fadeIn 2s ease-in-out;
+  color: #fff;
+}
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+
+  .content h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .btn {
+    background: rgba(255, 68, 0, 0.863);
+    color: white;
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: rgba(255, 68, 0, 0.863);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .about-section {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-image, .about-content {
+      flex: 1 1 100%;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .content h1 {
+      font-size: 36px;
+    }
+    .content p {
+      font-size: 16px;
+    }
+    .btn {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>About Incredible India Tours</h1>
+    <p>Explore the beauty of India with us</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="about-image">
+    <img src="./../images/about.jpeg" alt="About Us">
+  </div>
+  <div class="about-content">
+    <h2>Who We Are</h2>
+    <p>We are passionate about showcasing the beauty, diversity, and culture of India. Our goal is to create unforgettable travel experiences for our customers through personalized tours and exceptional service.</p>
+    <ul>
+      <li><i class="fas fa-map-marked-alt"></i> Customized Travel Packages</li>
+      <li><i class="fas fa-hotel"></i> Best Stay Options</li>
+      <li><i class="fas fa-bus"></i> Comfortable Transport</li>
+      <li><i class="fas fa-headset"></i> 24/7 Customer Support</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="team-section">
+  <h2>Meet Our Team</h2>
+  <div class="team-container">
+    <div class="team-member">
+      <img src="./../images/businessman.png" alt="Team Member">
+      <h4>Rahul Sharma</h4>
+      <p>Founder & CEO</p>
+    </div>
+    <div class="team-member">
+      <img src="./../images/bussiness-man.png" alt="Team Member">
+      <h4>Anjali Mehta</h4>
+      <p>Travel Expert</p>
+    </div>
+    <div class="team-member">
+      <img src="./../images/woman (2).png" alt="Team Member">
+      <h4>Vikram Singh</h4>
+      <p>Tour Guide</p>
+    </div>
+  </div>
+</section>
+
+<!-- Second Hero Section -->
+<section class="hero-section">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>QUESTIONS?</h1>
+    <p>
+      Whether you're intrigued about India, looking for a tour package, or just hotels
+      or transportation (flight/train/road), we're here to help.
+    </p>
+   <button class="btn" onclick="window.location.href='chat box.html'">Let's Talk</button>
+
+  </div>
+</section>
+
+<!-- JS -->
+<script>
+  window.addEventListener('scroll', () => {
+    const elements = document.querySelectorAll('.about-section, .team-section');
+    const windowHeight = window.innerHeight;
+    elements.forEach(el => {
+      const position = el.getBoundingClientRect().top;
+      if (position < windowHeight - 100) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  function contactNow() {
+    alert("Thank you for reaching out! We’ll connect with you shortly.");
+  }
+</script>
+
+</body>
+</html>
