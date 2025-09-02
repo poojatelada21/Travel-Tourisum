@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Ticket Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f4f4f4, #ffe9d6);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      margin: 40px auto;
+      box-shadow: 0 0 15px rgb(124, 42, 42);
+      border-radius: 12px;
+      animation: bounce 1.5s ease-in-out;
+      box-sizing: border-box;
+    }
+
+    .form-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px 12px 0 0;
+    }
+
+    /* Bounce animation */
+    @keyframes bounce {
+      0%   { transform: translateY(-250px); opacity: 0; }
+      60%  { transform: translateY(30px); opacity: 1; }
+      80%  { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Typing heading */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .typing {
+      font-size: 25px;
+      color: #333;
+      border-right: 2px solid orange;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(25, end) forwards, blink 0.6s infinite;
+    }
+
+    .i {
+      color: rgba(255, 68, 0, 0.863);
+      font-weight: bold;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 20ch }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: rgba(255, 68, 0, 0.863); }
+    }
+
+    /* Labels & inputs */
+    label {
+      display: block;
+      text-align: left;
+      margin: 12px 0 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: linear-gradient(45deg, #ff9913);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #e68a00;
+    }
+
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .form-container {
+        width: 90%;
+        padding: 15px;
+      }
+      .typing { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <!-- Image -->
+    <img src="https://media.istockphoto.com/id/510185007/photo/public-bus-in-a-city.jpg?s=612x612&w=0&k=20&c=gcuO49ZO1hBB9aEPWyhMPfBU_sGB1FZDw7BPUQkwRmo=" alt="Bus Image">
+    
+    <!-- Typing Heading -->
+    <div class="typing-container">
+      <h3 class="typing">Bus <i class="i">Ticket Form</i></h3>
+    </div>
+
+    <!-- Trip type -->
+    <div class="radio-group">
+      <label><input type="radio" name="trip" value="one-way" checked> One Way</label>
+      <label><input type="radio" name="trip" value="round-trip"> Round Trip</label>
+    </div>
+
+    <!-- Booking form -->
+    <form action="Bus Ticket.html" method="get">
+      <label>Passenger Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label>Departure Date:</label>
+      <input type="date" id="date" required>
+
+      <label>Passengers:</label>
+      <select id="passengers">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+
+      <label>Bus Type:</label>
+      <select id="bus-type">
+        <option value="Any">Any</option>
+        <option value="AC">AC</option>
+        <option value="Non-AC">Non-AC</option>
+      </select>
+
+      <label>Seating Type:</label>
+      <select id="seating-type">
+        <option value="Any">Any</option>
+        <option value="Sleeper">Sleeper</option>
+        <option value="Seater">Seater</option>
+      </select>
+
+      <button type="submit">Search Bus</button>
+    </form>
+  </div>
+</body>
+</html>
