@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
     }
+
     .container {
       width: 90%;
       max-width: 500px;
@@ -22,65 +23,66 @@
       border-radius: 10px;
       animation: jump 2s ease;
     }
+
     @keyframes jump {
       0% { transform: translateY(-100vh); opacity: 0; }
       50% { transform: translateY(20px); opacity: 1; }
       70% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
     }
+
     .header img {
       width: 100%;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
-    h2 {
-      margin: 20px 0;
-      font-size: 24px;
-      text-align: center;
-      min-height: 30px;
+
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      height: 1.2rem;
     }
+
     .typing {
-      border-right: 2px solid #333;
-      display: inline-block;
+      text-align: center;
+      font-size: 25px;
+      color: #333;
+      border-right: 2px solid orange;
       white-space: nowrap;
       overflow: hidden;
-      animation: blink 0.7s step-end infinite;
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    /* New Text Styles */
-    .normal {
-      color: #333;
-      font-weight: 600;
-    }
-    .highlight {
-      color: #ff9913;
-      font-weight: 700;
+      width: 0;
+      animation: typing 5s steps(20, end) forwards, blink 0.6s infinite;
+      margin: 0 auto;
     }
 
-    /* Optional: gradient animated title style */
-    .booking-title {
-      font-size: 32px;
+    .i {
+      color: rgba(255, 68, 0, 0.863);
       font-weight: bold;
-      background: linear-gradient(to right, #ff9913, #ff4e00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-      letter-spacing: 2px;
-      animation: fadeInUp 1s ease-out;
-      display: inline-block;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 20ch }
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: rgba(255, 68, 0, 0.863); }
+    }
+
+    @media screen and (max-width: 768px) {
+      .typing {
+        font-size: 16px;
+        animation: typing 3s steps(25) forwards, blink 0.6s infinite;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    }
+
+    @media screen and (max-width: 480px) {
+      .typing {
+        font-size: 14px;
+        animation: typing 2.5s steps(20) forwards, blink 0.6s infinite;
       }
     }
 
@@ -90,6 +92,7 @@
       margin: 10px 0 5px;
       font-weight: bold;
     }
+
     input, select {
       width: 100%;
       padding: 10px;
@@ -97,12 +100,14 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     .radio-group {
       display: flex;
       justify-content: center;
       gap: 10px;
       margin-bottom: 10px;
     }
+
     button {
       width: 100%;
       padding: 12px;
@@ -114,6 +119,7 @@
       font-size: 16px;
       transition: 0.3s;
     }
+
     button:hover {
       background: #e68a00;
     }
@@ -122,63 +128,44 @@
 <body>
   <div class="container">
     <div class="header">
-      <img src="https://img.freepik.com/free-photo/steam-train-chugs-through-forest-nostalgic-journey-through-history-generated-by-artificial-intelligence_25030-63393.jpg?w=1800">
+      <img src="https://img.freepik.com/free-photo/steam-train-chugs-through-forest-nostalgic-journey-through-history-generated-by-artificial-intelligence_25030-63393.jpg?w=1800" alt="Train Image">
     </div>
-    <h2>
-      <span class="typing"></span>
-    </h2>
+
+    <!-- Typing Heading -->
+    <div class="typing-container">
+      <h3 class="typing">Train<i class="i"> Booking Form</i></h3>
+    </div>
+
     <div class="radio-group">
       <label><input type="radio" name="trip" value="one-way" checked> One Way</label>
       <label><input type="radio" name="trip" value="round-trip"> Round Trip</label>
     </div>
-    <form>
+
+    <form id="Train" action="Train ticket.html" method="get">
       <label for="name">Full Name</label>
-      <input type="text" id="name" placeholder="Enter Your Name" required>
-      
+      <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+
       <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Enter Your Email" required>
-      
+      <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+
       <label for="phone">Phone No</label>
-      <input type="tel" id="phone" placeholder="(000)000-000" required>
-      
+      <input type="tel" id="phone" name="phone" placeholder="(000)000-000" required>
+
       <label for="quota">Reservation</label>
-      <select id="quota">
+      <select id="quota" name="quota" required>
         <option value="">Please Select</option>
         <option value="general">General</option>
         <option value="ac">AC</option>
       </select>
-      
+
       <label for="from">Journey From</label>
-      <input type="text" id="from" placeholder="Enter Station Code or Name" required>
-      
+      <input type="text" id="from" name="from" placeholder="Enter Station Code or Name" required>
+
       <label for="to">Journey To</label>
-      <input type="text" id="to" placeholder="Enter Destination Code or Name" required>
-      
-      <button type="submit">Search Now</button>
+      <input type="text" id="to" name="to" placeholder="Enter Destination Code or Name" required>
+
+      <button type="submit">Search Train</button>
     </form>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const textNormal = "Train Ticket ";
-      const textHighlight = "Booking Form";
-      const typingElement = document.querySelector(".typing");
-      let i = 0;
-
-      function typeEffect() {
-        if (i < textNormal.length) {
-          typingElement.innerHTML += `<span class="normal">${textNormal.charAt(i)}</span>`;
-        } else if (i - textNormal.length < textHighlight.length) {
-          typingElement.innerHTML += `<span class="highlight">${textHighlight.charAt(i - textNormal.length)}</span>`;
-        }
-        i++;
-        if (i < textNormal.length + textHighlight.length) {
-          setTimeout(typeEffect, 100);
-        }
-      }
-
-      typeEffect();
-    });
-  </script>
 </body>
 </html>
