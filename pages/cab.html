@@ -1,0 +1,201 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cab Booking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      margin: 30px auto;
+      box-shadow:  0 0 15px rgb(124, 42, 42);
+      border-radius: 10px;
+       animation: jump 2s ease;
+    }
+     @keyframes jump {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { transform: translateY(20px); opacity: 1; }
+      70% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .header img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    h2 {
+      color: #333;
+      font-size: 22px;
+      margin: 15px 0;
+    }
+   /* Typing animation for Flight Reservation heading */
+    @media screen and (max-width: 768px) {
+  .typing {
+    font-size: 16px;       /* Smaller text on mobile */
+    animation: typing 3s steps(25) forwards, blink 0.6s infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 25ch; }    /* Shorter width for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .typing {
+    font-size: 14px;
+    animation: typing 2.5s steps(20) forwards, blink 0.6s infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 20ch; }
+  }
+}
+
+.typing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height:1.2rem;
+}
+
+
+.typing {
+  margin: 2px auto;
+  text-align: center;
+  font-size: 25px;
+  color: #333;
+  border-right: 2px solid orange;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 5s steps(20, end) forwards;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-top: 0px;
+}
+
+
+.i {
+  color: rgba(255, 68, 0, 0.863);
+  font-weight: bold;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 20ch }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: rgba(255, 68, 0, 0.863); }
+}
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 10px 0 15px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff9913;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #e68a00;
+    }
+    @media (max-width: 600px) {
+      .container {
+        width: 95%;
+        padding: 15px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      button {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://img.freepik.com/free-vector/taxi-online-service-with-map_1150-39387.jpg?w=1380" alt="Cab Image">
+    </div>
+
+
+    <!-- Typing Heading -->
+    <div class="typing">
+    <h3 class="typing">Cab<i class="i"> Ticket Form</i></h3></div>
+
+    <form id="cabform" action="Cab Ticket.html" method="get">
+      <!-- Trip Type moved on top -->
+      
+      <div class="radio-group">
+        <label><input type="radio" name="trip" value="one-way" checked> One Way</label>
+        <label><input type="radio" name="trip" value="round-trip"> Round Trip</label>
+      </div>
+
+      <!-- Passenger Name comes after Trip Type -->
+      <label for="passenger">Passenger Name</label>
+      <input type="text" id="passenger" placeholder="Enter Passenger Name" required>
+
+      <label for="pickup">Pickup Location</label>
+      <input type="text" id="pickup" placeholder="Enter Pickup Location" required>
+
+      <label for="drop">Drop Location</label>
+      <input type="text" id="drop" placeholder="Enter Drop Location" required>
+
+      <label for="cabType">Cab Type</label>
+      <select id="cabType" required>
+        <option value="">Please Select</option>
+        <option value="sedan">Sedan</option>
+        <option value="suv">SUV</option>
+        <option value="hatchback">Hatchback</option>
+      </select>
+
+      <label for="date">Pickup Date</label>
+      <input type="date" id="date" required>
+
+      <label for="time">Pickup Time</label>
+      <input type="time" id="time" required>
+
+      <button type="submit">Search Cab</button>
+      
+    </form>
+  </div>
+</body>
+</html>
