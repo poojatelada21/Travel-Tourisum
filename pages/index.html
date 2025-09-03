@@ -35,16 +35,17 @@
     }
 }
    /* ========== NAVBAR STYLES ========== */
+/* ========== NAVBAR ========== */
 .navbar {
   width: 100%;
-  background:#5A3E2D;
+  background: #5A3E2D;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .navbar .logo {
@@ -53,6 +54,7 @@
   color: #fff;
 }
 
+/* Desktop menu */
 .nav-links {
   list-style: none;
   display: flex;
@@ -70,112 +72,60 @@
   color: #f4c842;
 }
 
-/* ✅ Responsive for small screens */
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* ====== MOBILE STYLES ====== */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
     background: #333;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    text-align: center;
-    padding: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 1001;
   }
 }
-/* ====== Hamburger ====== */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
 
-    .hamburger div {
-      width: 28px;
-      height: 3px;
-      background: #fff;
-      transition: all 0.3s ease;
-    }
+/* Hamburger animation */
+.hamburger.toggle div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.toggle div:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.toggle div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 
-    /* ====== Mobile Menu ====== */
-    .nav-links {
-      position: fixed;
-      top: 60px; /* Matches navbar height */
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: #333;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transform: translateX(-100%);
-      transition: transform 0.4s ease-in-out;
-      overflow: hidden;
-    }
-
-    .nav-links.active {
-      transform: translateX(0);
-    }
-
-    .nav-links ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .nav-links ul li {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: all 0.4s ease;
-    }
-
-    .nav-links.active ul li {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .nav-links.active ul li:nth-child(1) { transition-delay: 0.2s; }
-    .nav-links.active ul li:nth-child(2) { transition-delay: 0.3s; }
-    .nav-links.active ul li:nth-child(3) { transition-delay: 0.4s; }
-    .nav-links.active ul li:nth-child(4) { transition-delay: 0.5s; }
-
-    .nav-links ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 24px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links ul li a:hover {
-      color: #ff9800;
-    }
-
-    /* ====== Hamburger Animation ====== */
-    .hamburger.toggle div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.toggle div:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.toggle div:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    /* ====== Responsive ====== */
-    @media screen and (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
     /* ===== CONTAINER ===== */
     .main-container {
       display: flex;
@@ -762,26 +712,22 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,40,142,1) 45%, rgba
   <!-- ===== NAVBAR ===== --->
 <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">Incredible India</div>
-    <ul class="nav-links">
-      <li><a href="./../pages/index.html">Home</a></li>
-      <li><a href="./../pages/packages.html">Packages</a></li>
-      <li><a href="./../pages/hotels.html">Hotels</a></li>
-      <li><a href="./../pages/about.html">About</a></li>
-      <li><a href="./../pages/contact.html">Contact</a></li>
-      
-    </ul>
-  </nav>
-    <!-- mobile device -->
-   <div class="nav-links" id="mobileMenu">
-    <ul>
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./packages.html">Packages</a></li>
-      <li><a href="./hotels.html">Hotels</a></li>
-      <li><a href="./about.html">About</a></li>
-      <li><a href="./contact.html">Contact</a></li>
-    </ul>
+  <div class="logo">Incredible India</div>
+  <ul class="nav-links" id="mobileMenu">
+    <li><a href="./../pages/index.html">Home</a></li>
+    <li><a href="./../pages/packages.html">Packages</a></li>
+    <li><a href="./../pages/hotels.html">Hotels</a></li>
+    <li><a href="./../pages/about.html">About</a></li>
+    <li><a href="./../pages/contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
+</nav>
+
+
 
          
         
