@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rail Ticket Reservation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      margin: 50px auto;
+      box-shadow: 0 0 15px rgba(124, 42, 42, 0.6);
+      border-radius: 10px;
+      animation: jump 2s ease;
+    }
+    @keyframes jump {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      50% { transform: translateY(20px); opacity: 1; }
+      70% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .header img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    h2 {
+      margin: 20px 0;
+      font-size: 24px;
+      text-align: center;
+      min-height: 30px;
+    }
+    .typing {
+      border-right: 2px solid #333;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* New Text Styles */
+    .normal {
+      color: #333;
+      font-weight: 600;
+    }
+    .highlight {
+      color: #ff9913;
+      font-weight: 700;
+    }
+
+    /* Optional: gradient animated title style */
+    .booking-title {
+      font-size: 32px;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff9913, #ff4e00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      letter-spacing: 2px;
+      animation: fadeInUp 1s ease-out;
+      display: inline-block;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff9913;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #e68a00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://img.freepik.com/free-photo/steam-train-chugs-through-forest-nostalgic-journey-through-history-generated-by-artificial-intelligence_25030-63393.jpg?w=1800">
+    </div>
+    <h2>
+      <span class="typing"></span>
+    </h2>
+    <div class="radio-group">
+      <label><input type="radio" name="trip" value="one-way" checked> One Way</label>
+      <label><input type="radio" name="trip" value="round-trip"> Round Trip</label>
+    </div>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter Your Name" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter Your Email" required>
+      
+      <label for="phone">Phone No</label>
+      <input type="tel" id="phone" placeholder="(000)000-000" required>
+      
+      <label for="quota">Reservation</label>
+      <select id="quota">
+        <option value="">Please Select</option>
+        <option value="general">General</option>
+        <option value="ac">AC</option>
+      </select>
+      
+      <label for="from">Journey From</label>
+      <input type="text" id="from" placeholder="Enter Station Code or Name" required>
+      
+      <label for="to">Journey To</label>
+      <input type="text" id="to" placeholder="Enter Destination Code or Name" required>
+      
+      <button type="submit">Search Now</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const textNormal = "Train Ticket ";
+      const textHighlight = "Booking Form";
+      const typingElement = document.querySelector(".typing");
+      let i = 0;
+
+      function typeEffect() {
+        if (i < textNormal.length) {
+          typingElement.innerHTML += `<span class="normal">${textNormal.charAt(i)}</span>`;
+        } else if (i - textNormal.length < textHighlight.length) {
+          typingElement.innerHTML += `<span class="highlight">${textHighlight.charAt(i - textNormal.length)}</span>`;
+        }
+        i++;
+        if (i < textNormal.length + textHighlight.length) {
+          setTimeout(typeEffect, 100);
+        }
+      }
+
+      typeEffect();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Ticket Prices</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eef2f7;
+      text-align: center;
+    }
+
+    section {
+      margin: 20px auto;
+      width: 95%;
+      max-width: 1200px;
+      overflow-x: auto; /* Mobile scroll */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    thead tr {
+      background:rgb(124, 42, 42);
+      color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .book-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #ff9913;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-size: 13px;
+    }
+
+    .book-btn:hover {
+      background: #ff9913;
+      transform: scale(1.05);
+    }
+
+    /* Heading Animation */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 30ch }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: #ff9913; }
+    }
+
+    h3 {
+      font-size: 2rem;
+      color: #333;
+      border-right: 2px solid #ff9913;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 5s steps(30,end) forwards, blink 0.6s infinite;
+    }
+
+    /* Mobile Responsive */
+    @media screen and (max-width:768px){
+      table { font-size: 12px; }
+      h3 { font-size: 18px; animation: typing 3s steps(25) forwards, blink 0.6s infinite; }
+    }
+    @media screen and (max-width:480px){
+      table { font-size: 11px; }
+      th, td { padding: 8px; }
+      .book-btn { padding: 6px 10px; font-size: 12px; }
+      h3 { font-size: 16px; animation: typing 2.5s steps(20) forwards, blink 0.6s infinite; }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const bookButtons = document.querySelectorAll(".book-btn");
+      bookButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          alert("Flight booking confirmed!");
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div style="display:flex; justify-content:center; align-items:center; padding:20px;">
+    <h3>Flight Ticket <i style="color:rgba(255, 68, 0, 0.863); font-weight:bold;">Prices</i></h3>
+  </div>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>Flight</th>
+          <th>From</th>
+          <th>To (Tourist Destination)</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Price (INR)</th>
+          <th>Book</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Air Chennai</td><td>Bangalore</td><td>Chennai</td><td>06:30 AM</td><td>07:45 AM</td><td>₹4,500</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>IndiGo Kochi</td><td>Chennai</td><td>Kochi</td><td>08:00 AM</td><td>09:10 AM</td><td>₹5,200</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>SpiceJet Madurai</td><td>Chennai</td><td>Madurai</td><td>10:15 AM</td><td>11:05 AM</td><td>₹3,800</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Vistara Marari</td><td>Kochi</td><td>Marari</td><td>11:00 AM</td><td>11:30 AM</td><td>₹2,200</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Air India Periyar</td><td>Kochi</td><td>Periyar</td><td>01:00 PM</td><td>01:45 PM</td><td>₹3,200</td><td><a href="#" class="book-btn">Book</a></td></tr>
+
+        <tr><td>GoAir Jaipur</td><td>Delhi</td><td>Jaipur</td><td>07:15 AM</td><td>08:05 AM</td><td>₹3,600</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Air India Leh</td><td>Pune</td><td>Leh</td><td>05:45 AM</td><td>09:15 AM</td><td>₹9,500</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>IndiGo Manali</td><td>Delhi</td><td>Manali</td><td>10:30 AM</td><td>11:30 AM</td><td>₹4,800</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Vistara Khajjir</td><td>Delhi</td><td>Khajjir</td><td>06:30 AM</td><td>07:20 AM</td><td>₹4,200</td><td><a href="#" class="book-btn">Book</a></td></tr>
+
+        <tr><td>GoAir Mumbai</td><td>Pune</td><td>Mumbai</td><td>06:00 AM</td><td>06:50 AM</td><td>₹2,200</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>IndiGo Goa</td><td>Mumbai</td><td>Goa</td><td>09:00 AM</td><td>10:15 AM</td><td>₹5,600</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>SpiceJet Munnar</td><td>Kochi</td><td>Munnar</td><td>12:00 PM</td><td>12:35 PM</td><td>₹2,800</td><td><a href="#" class="book-btn">Book</a></td></tr>
+
+        <tr><td>Air Asia Pavillion</td><td>Kolkata</td><td>Pavillion</td><td>06:30 AM</td><td>07:20 AM</td><td>₹6,000</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Turkish Air Poiana Brașov</td><td>Delhi</td><td>Poiana Brașov</td><td>07:00 AM</td><td>01:00 PM</td><td>₹18,000</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Air India Humayun's Tomb</td><td>Agra</td><td>Humayun's Tomb</td><td>09:00 AM</td><td>09:25 AM</td><td>₹2,400</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Thai Airways Ancient Siam</td><td>Kolkata</td><td>Ancient Siam</td><td>05:30 AM</td><td>09:00 AM</td><td>₹12,000</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>Singapore Air Bali</td><td>Chennai</td><td>Bali Indonesia</td><td>10:30 PM</td><td>04:30 AM</td><td>₹22,000</td><td><a href="#" class="book-btn">Book</a></td></tr>
+        <tr><td>IndiGo Gangtok</td><td>Kolkata</td><td>Gangtok</td><td>06:30 AM</td><td>07:40 AM</td><td>₹7,500</td><td><a href="#" class="book-btn">Book</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
