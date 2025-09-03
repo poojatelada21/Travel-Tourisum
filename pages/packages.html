@@ -628,21 +628,19 @@
 </head>
 <body>
   <!-- ====== Navbar ====== -->
-  <!-- ===== NAVBAR ===== --->
-<!-- Navbar -->
-  <nav class="navbar">
-  <div class="logo">Incredible India</div>
-  <ul class="nav-links" id="mobileMenu">
-    <li><a href="./../pages/index.html">Home</a></li>
-    <li><a href="./../pages/packages.html">Packages</a></li>
-    <li><a href="./../pages/about.html">About</a></li>
-    <li><a href="./../pages/contact.html">Contact</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+<nav>
+   <div class="logo">Incredible India</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Packages</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </nav>
 
 <!-- ====== Mobile Menu ====== -->
@@ -650,7 +648,7 @@
     <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Packages</a></li>
-        <li><a href="#"> About</a></li>
+        <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
     </ul>
 </div>
@@ -716,44 +714,7 @@
   </div>
   <button class="scroll-btn scroll-right">&#10095;</button>
 </div>
-  <!-- Footer -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-section about">
-      <h3>Incridible India</h3>
-      <br>
-      <p>Explore the beauty and culture of India with us. Your adventure starts here!</p><br>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/login?"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-
-    <div class="footer-section links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">Tours</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section contact">
-      <h4>Contact Us</h4>
-      <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
-      <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-      <p><i class="fas fa-envelope"></i> info@indiatravel.com</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 India Travel & Tourism | All Rights Reserved</p>
-  </div>
-</footer>
-<script>
+ <script>
   const scrollContainers = document.querySelectorAll('.outer-container');
 
   scrollContainers.forEach(container => {
